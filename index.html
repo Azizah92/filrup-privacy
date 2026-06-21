@@ -7,17 +7,17 @@
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- Social preview + SEO -->
-<meta name="description" content="FILRUP is the voice-powered fuel tracker. Tap the mic, say what you spent, and FILRUP logs it — the station, the amount, and where your fuel money goes. English & Español. Free on the App Store.">
+<meta name="description" content="FILRUP is the voice-powered fuel tracker. Tap the mic, say what you spent, and FILRUP logs the station, gallons, price per gallon and more. Track unlimited vehicles, tag business trips for tax mileage estimates, and export to CSV. English & Español. Try it free for 7 days.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://filrup.app/">
 <meta property="og:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
-<meta property="og:description" content="Say what you spent — FILRUP detects the station, logs it, and shows where your fuel money goes. English & Español. Free on the App Store.">
+<meta property="og:description" content="Say what you spent — FILRUP detects the station, logs it, tracks mileage and taxes, and exports to CSV. English & Español. Try it free for 7 days.">
 <meta property="og:image" content="https://filrup.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
-<meta name="twitter:description" content="Say what you spent — FILRUP does the rest. English & Español. Free on the App Store.">
+<meta name="twitter:description" content="Say what you spent — FILRUP does the rest. Mileage, taxes, CSV export. English & Español. Try it free for 7 days.">
 <meta name="twitter:image" content="https://filrup.app/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +83,14 @@
   .store:hover{border-color:var(--teal)}
   .store small{display:block;font-size:10px;color:var(--muted);letter-spacing:.08em}
   .store b{font-size:18px;font-family:"Bricolage Grotesque";font-weight:700}
+  .trial-note{color:var(--muted);font-size:13px;margin-top:14px}
+  .hero-logo{width:84px;height:84px;display:block;margin-bottom:22px;filter:drop-shadow(0 8px 24px rgba(13,148,136,.45))}
+  .price-badge{display:inline-flex;align-items:center;gap:9px;margin-top:18px;
+    background:linear-gradient(135deg,rgba(20,199,182,.18),rgba(13,148,136,.10));
+    border:1px solid rgba(20,199,182,.45);border-radius:999px;padding:11px 20px;
+    font-size:15px;font-weight:600;color:var(--white);box-shadow:0 6px 24px rgba(13,148,136,.25)}
+  .price-badge .free{color:var(--teal-bright);font-weight:700}
+  .price-badge .dot-sep{width:5px;height:5px;border-radius:50%;background:var(--muted);display:inline-block}
   .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
 
@@ -113,7 +121,7 @@
   .scard small{color:var(--green);font-size:11px;font-weight:600;display:block;margin-bottom:4px}
   .scard b{font-family:"Bricolage Grotesque";font-size:22px;font-weight:700}
   .scard span{color:var(--muted);font-size:11px}
-  @media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.sub{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}.eyebrow{margin-inline:auto}}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.sub{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}.eyebrow{margin-inline:auto}.trial-note{text-align:center}.hero-logo{margin-left:auto;margin-right:auto}}
 
   /* sections */
   section{position:relative;z-index:2;padding:84px 0}
@@ -174,14 +182,17 @@
 
 <header><div class="wrap hero">
   <div>
+    <img src="logo_mark.png" alt="FILRUP" class="hero-logo reveal">
     <span class="eyebrow reveal"><span class="dot"></span><span data-t="eyebrow">Voice-first fuel tracking</span></span>
     <h1 class="title reveal" data-t="title">Just speak. <span class="ac">FILRUP</span> tracks it.</h1>
-    <p class="sub reveal" data-t="sub">Log every fill-up with your voice in seconds. No typing, no receipts to hunt for — just tell FILRUP what you spent and watch your fuel costs add up.</p>
+    <p class="sub reveal" data-t="sub">Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.</p>
     <div class="cta-row reveal">
       <a class="store" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M16.5 1.5c0 1.1-.4 2.1-1.2 2.9-.9.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-2.9.8-.9 2.1-1.5 3.2-1.4zM20.3 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.7-3.9-3.1C-1 16.8-1.4 11 1 8c1-1.5 2.6-2.4 4.1-2.4 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.8.7 3.8 2-3.3 1.8-2.8 6.5.6 9.4z"/></svg>
         <span><small data-t="dl1">Download on the</small><b>App Store</b></span></a>
       <a class="btn ghost" href="#how" data-t="learncta">See how it works</a>
     </div>
+    <div class="price-badge reveal"><span class="free" data-t="trialfree">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen">then $1.99/month</span></div>
+    <p class="trial-note reveal" data-t="platform">Available on iPhone now · Android coming soon</p>
   </div>
   <div class="phone-stage reveal">
     <div class="phone"><div class="screen"><div class="notch"></div>
@@ -198,12 +209,12 @@
 </div></header>
 
 <section id="how"><div class="wrap">
-  <div class="sec-head reveal"><span class="kicker" data-t="k1">Three taps, done</span>
+  <div class="sec-head reveal"><span class="kicker" data-t="k1">From pump to logged in seconds</span>
     <h2 data-t="h1">Tracking fuel has never been this fast</h2></div>
   <div class="steps">
-    <div class="step reveal"><span class="num">1</span><h3 data-t="s1t">Tap to speak</h3><p data-t="s1p">Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback."</p></div>
-    <div class="step reveal"><span class="num">2</span><h3 data-t="s2t">FILRUP logs it</h3><p data-t="s2p">Your amount and station are captured automatically and saved as a fill-up — no forms, no typing.</p></div>
-    <div class="step reveal"><span class="num">3</span><h3 data-t="s3t">See your spending</h3><p data-t="s3p">Watch your monthly total, trends, and most-visited stations build up over time.</p></div>
+    <div class="step reveal"><span class="num">1</span><h3 data-t="s1t">Tap to speak</h3><p data-t="s1p">Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback." Prefer to type? Enter it manually anytime.</p></div>
+    <div class="step reveal"><span class="num">2</span><h3 data-t="s2t">FILRUP logs it</h3><p data-t="s2p">Your amount and the station — with its address — are captured automatically by GPS. Add gallons, price per gallon, odometer, trip type, and payment method.</p></div>
+    <div class="step reveal"><span class="num">3</span><h3 data-t="s3t">See your spending</h3><p data-t="s3p">Watch your monthly total, mileage, MPG, cost per mile, and most-visited stations build up over time — then export it all when you need it.</p></div>
   </div>
 </div></section>
 
@@ -211,12 +222,15 @@
   <div class="sec-head reveal"><span class="kicker" data-t="k2">Built for drivers</span>
     <h2 data-t="h2">Everything you need, nothing you don't</h2></div>
   <div class="features">
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zM19 11a7 7 0 0 1-14 0M12 18v3"/></svg></div><h3 data-t="f1t">Voice entry</h3><p data-t="f1p">Log a fill-up hands-free in one breath. The button turns green the moment FILRUP hears your amount.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div><h3 data-t="f2t">vs last month</h3><p data-t="f2p">See at a glance whether you're spending more or less on fuel than the month before.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3 data-t="f3t">Most-visited station</h3><p data-t="f3p">FILRUP surfaces the station you fuel up at most, so you always know your go-to spot.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div><h3 data-t="f4t">Clear stats</h3><p data-t="f4p">All-time totals, fuel-stop counts, cheapest and most-expensive fill-ups — laid out simply.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-t="f5t">English &amp; Español</h3><p data-t="f5p">Fully bilingual. Switch the whole app between English and Spanish whenever you like.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3 data-t="f6t">Yours &amp; private</h3><p data-t="f6p">Your fuel history stays on your device. Simple, personal expense tracking with no clutter.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zM19 11a7 7 0 0 1-14 0M12 18v3"/></svg></div><h3 data-t="f1t">Voice or manual entry</h3><p data-t="f1p">Log a fill-up hands-free in one breath, or type it in manually. The button turns green the moment FILRUP hears your amount.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3 data-t="f2t">GPS station detection</h3><p data-t="f2p">FILRUP detects the gas station you're at — name and address — so you never have to look it up or type it.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div><h3 data-t="f3t">Full fill-up details</h3><p data-t="f3p">Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 17V7l4 4 4-4v10"/><path d="M3 21h18"/></svg></div><h3 data-t="f4t">Unlimited vehicles</h3><p data-t="f4p">Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="18" cy="17" r="2"/></svg></div><h3 data-t="f5t">Business vs personal</h3><p data-t="f5p">Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 19h16"/></svg></div><h3 data-t="f6t">Export &amp; share</h3><p data-t="f6p">Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div><h3 data-t="f7t">Stats &amp; highlights</h3><p data-t="f7p">Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg></div><h3 data-t="f8t">Light &amp; dark mode</h3><p data-t="f8p">Switch between light and dark themes — easy on the eyes in bright daylight or at night.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-t="f9t">English &amp; Español</h3><p data-t="f9p">Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.</p></div>
   </div>
 </div></section>
 
@@ -236,9 +250,11 @@
 
 <section id="get"><div class="wrap final reveal">
   <h2 data-t="fh">Stop typing. Start speaking.</h2>
-  <p data-t="fp">FILRUP turns every gas stop into a two-second voice note. Download it free.</p>
+  <p data-t="fp">FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.</p>
   <a class="store" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener" style="margin:0 auto"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M16.5 1.5c0 1.1-.4 2.1-1.2 2.9-.9.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-2.9.8-.9 2.1-1.5 3.2-1.4zM20.3 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.7-3.9-3.1C-1 16.8-1.4 11 1 8c1-1.5 2.6-2.4 4.1-2.4 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.8.7 3.8 2-3.3 1.8-2.8 6.5.6 9.4z"/></svg>
     <span><small data-t="dl1b">Download on the</small><b>App Store</b></span></a>
+  <div class="price-badge" style="margin-top:24px"><span class="free" data-t="trialfree2">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen2">then $1.99/month</span></div>
+  <p class="trial-note" style="text-align:center" data-t="platform2">Available on iPhone now · Android coming soon</p>
 </div></section>
 
 <footer><div class="wrap foot-in">
@@ -255,40 +271,54 @@
 const T={
  en:{nav1:"How it works",nav2:"Features",nav3:"Languages",navcta:"Download",
   eyebrow:"Voice-first fuel tracking",title:'Just speak. <span class="ac">FILRUP</span> tracks it.',
-  sub:"Log every fill-up with your voice in seconds. No typing, no receipts to hunt for — just tell FILRUP what you spent and watch your fuel costs add up.",
-  dl1:"Download on the",dl1b:"Download on the",learncta:"See how it works",vs:"vs last month ↓ 8%",tap:"Tap to speak",
+  sub:"Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.",
+  dl1:"Download on the",dl1b:"Download on the",learncta:"See how it works",
+  trial:"Try it free for 7 days · then $1.99/month",trial2:"Try it free for 7 days · then $1.99/month",
+  trialfree:"Free for 7 days",trialthen:"then $1.99/month",trialfree2:"Free for 7 days",trialthen2:"then $1.99/month",
+  platform:"Available on iPhone now · Android coming soon",platform2:"Available on iPhone now · Android coming soon",
+  vs:"vs last month ↓ 8%",tap:"Tap to speak",
   c1:"This month",c1b:"6 fill-ups",c2:"Most-visited",
-  k1:"Three taps, done",h1:"Tracking fuel has never been this fast",
-  s1t:"Tap to speak",s1p:'Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback."',
-  s2t:"FILRUP logs it",s2p:"Your amount and station are captured automatically and saved as a fill-up — no forms, no typing.",
-  s3t:"See your spending",s3p:"Watch your monthly total, trends, and most-visited stations build up over time.",
+  k1:"From pump to logged in seconds",h1:"Tracking fuel has never been this fast",
+  s1t:"Tap to speak",s1p:'Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback." Prefer to type? Enter it manually anytime.',
+  s2t:"FILRUP logs it",s2p:"Your amount and the station — with its address — are captured automatically by GPS. Add gallons, price per gallon, odometer, trip type, and payment method.",
+  s3t:"See your spending",s3p:"Watch your monthly total, mileage, MPG, cost per mile, and most-visited stations build up over time — then export it all when you need it.",
   k2:"Built for drivers",h2:"Everything you need, nothing you don't",
-  f1t:"Voice entry",f1p:"Log a fill-up hands-free in one breath. The button turns green the moment FILRUP hears your amount.",
-  f2t:"vs last month",f2p:"See at a glance whether you're spending more or less on fuel than the month before.",
-  f3t:"Most-visited station",f3p:"FILRUP surfaces the station you fuel up at most, so you always know your go-to spot.",
-  f4t:"Clear stats",f4p:"All-time totals, fuel-stop counts, cheapest and most-expensive fill-ups — laid out simply.",
-  f5t:"English & Español",f5p:"Fully bilingual. Switch the whole app between English and Spanish whenever you like.",
-  f6t:"Yours & private",f6p:"Your fuel history stays on your device. Simple, personal expense tracking with no clutter.",
+  f1t:"Voice or manual entry",f1p:"Log a fill-up hands-free in one breath, or type it in manually. The button turns green the moment FILRUP hears your amount.",
+  f2t:"GPS station detection",f2p:"FILRUP detects the gas station you're at — name and address — so you never have to look it up or type it.",
+  f3t:"Full fill-up details",f3p:"Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.",
+  f4t:"Unlimited vehicles",f4p:"Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.",
+  f5t:"Business vs personal",f5p:"Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.",
+  f6t:"Export & share",f6p:"Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.",
+  f7t:"Stats & highlights",f7p:"Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.",
+  f8t:"Light & dark mode",f8p:"Switch between light and dark themes — easy on the eyes in bright daylight or at night.",
+  f9t:"English & Español",f9p:"Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.",
   k3:"Hablamos tu idioma",bh:"One app, two languages",bp:"FILRUP speaks English and Spanish — every screen, button, and prompt. Track your fuel in the language you think in.",
-  fh:"Stop typing. Start speaking.",fp:"FILRUP turns every gas stop into a two-second voice note. Download it free.",foot:"Just Speak. FILRUP Tracks It."},
+  fh:"Stop typing. Start speaking.",fp:"FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.",foot:"Just Speak. FILRUP Tracks It."},
  es:{nav1:"Cómo funciona",nav2:"Funciones",nav3:"Idiomas",navcta:"Descargar",
   eyebrow:"Registro de combustible por voz",title:'Solo habla. <span class="ac">FILRUP</span> lo registra.',
-  sub:"Registra cada carga con tu voz en segundos. Sin escribir, sin buscar recibos — solo dile a FILRUP cuánto gastaste y mira crecer tus gastos de combustible.",
-  dl1:"Descárgalo en el",dl1b:"Descárgalo en el",learncta:"Ver cómo funciona",vs:"vs mes pasado ↓ 8%",tap:"Toca para hablar",
+  sub:"Registra cada carga con tu voz en segundos — sin buscar recibos. Solo dile a FILRUP cuánto gastaste, o escríbelo tú mismo, y mira crecer tus gastos, tu millaje y tus impuestos.",
+  dl1:"Descárgalo en el",dl1b:"Descárgalo en el",learncta:"Ver cómo funciona",
+  trial:"Pruébalo gratis 7 días · luego $1.99/mes",trial2:"Pruébalo gratis 7 días · luego $1.99/mes",
+  trialfree:"Gratis por 7 días",trialthen:"luego $1.99/mes",trialfree2:"Gratis por 7 días",trialthen2:"luego $1.99/mes",
+  platform:"Disponible en iPhone ahora · Android próximamente",platform2:"Disponible en iPhone ahora · Android próximamente",
+  vs:"vs mes pasado ↓ 8%",tap:"Toca para hablar",
   c1:"Este mes",c1b:"6 cargas",c2:"Más visitada",
-  k1:"Tres toques, listo",h1:"Registrar combustible nunca fue tan rápido",
-  s1t:"Toca para hablar",s1p:'Abre FILRUP y toca el micrófono. Di algo como "Cuarenta dólares en Shell en Camelback."',
-  s2t:"FILRUP lo registra",s2p:"Tu monto y estación se capturan automáticamente y se guardan como una carga — sin formularios.",
-  s3t:"Mira tus gastos",s3p:"Observa tu total mensual, tendencias y estaciones más visitadas con el tiempo.",
+  k1:"De la bomba a registrado en segundos",h1:"Registrar combustible nunca fue tan rápido",
+  s1t:"Toca para hablar",s1p:'Abre FILRUP y toca el micrófono. Di algo como "Cuarenta dólares en Shell en Camelback." ¿Prefieres escribir? Ingrésalo manualmente cuando quieras.',
+  s2t:"FILRUP lo registra",s2p:"Tu monto y la estación — con su dirección — se capturan automáticamente por GPS. Agrega galones, precio por galón, odómetro, tipo de viaje y método de pago.",
+  s3t:"Mira tus gastos",s3p:"Observa tu total mensual, millaje, MPG, costo por milla y estaciones más visitadas con el tiempo — y expórtalo todo cuando lo necesites.",
   k2:"Hecho para conductores",h2:"Todo lo que necesitas, nada de más",
-  f1t:"Entrada por voz",f1p:"Registra una carga con las manos libres. El botón se vuelve verde al escuchar tu monto.",
-  f2t:"vs mes pasado",f2p:"Ve de un vistazo si gastas más o menos en combustible que el mes anterior.",
-  f3t:"Estación más visitada",f3p:"FILRUP muestra la estación donde más cargas, para que conozcas tu lugar habitual.",
-  f4t:"Estadísticas claras",f4p:"Totales históricos, número de cargas, las más baratas y caras — todo simple.",
-  f5t:"Inglés y Español",f5p:"Totalmente bilingüe. Cambia toda la app entre inglés y español cuando quieras.",
-  f6t:"Tuyo y privado",f6p:"Tu historial se queda en tu dispositivo. Registro de gastos simple y personal.",
+  f1t:"Voz o manual",f1p:"Registra una carga con las manos libres, o escríbela manualmente. El botón se vuelve verde al escuchar tu monto.",
+  f2t:"Detección por GPS",f2p:"FILRUP detecta la gasolinera donde estás — nombre y dirección — para que nunca tengas que buscarla ni escribirla.",
+  f3t:"Detalles completos",f3p:"Captura galones, precio por galón, lectura del odómetro y método de pago — efectivo, débito o crédito — en cada parada.",
+  f4t:"Vehículos ilimitados",f4p:"Agrega todos los vehículos que quieras y registra cada uno por separado — ideal para familias, segundos autos y camionetas de trabajo.",
+  f5t:"Trabajo vs personal",f5p:"Etiqueta cada parada como trabajo o personal, y obtén un resumen de impuestos que estima tu deducción de millaje a la tarifa del IRS.",
+  f6t:"Exportar y compartir",f6p:"Exporta tu historial completo a CSV para Excel o tu contador, o compártelo directo desde la app con un toque.",
+  f7t:"Estadísticas y destacados",f7p:"Totales mensuales, gasto vs mes anterior, estación más visitada, además de tus paradas más baratas y más caras de un vistazo.",
+  f8t:"Modo claro y oscuro",f8p:"Cambia entre temas claro y oscuro — cómodo para la vista a plena luz o de noche.",
+  f9t:"Inglés y Español",f9p:"Totalmente bilingüe. Cambia toda la app entre inglés y español cuando quieras — voz incluida.",
   k3:"Hablamos tu idioma",bh:"Una app, dos idiomas",bp:"FILRUP habla inglés y español — cada pantalla, botón y mensaje. Registra tu combustible en el idioma en que piensas.",
-  fh:"Deja de escribir. Empieza a hablar.",fp:"FILRUP convierte cada parada en una nota de voz de dos segundos. Descárgala gratis.",foot:"Solo Habla. FILRUP lo Registra."}
+  fh:"Deja de escribir. Empieza a hablar.",fp:"FILRUP convierte cada parada en una nota de voz de dos segundos — y mantiene tu millaje, impuestos y registros listos cuando los necesites.",foot:"Solo Habla. FILRUP lo Registra."}
 };
 function setLang(l,btn){
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
