@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILRUP — Just Speak. FILRUP Tracks It.</title>
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Social preview + SEO -->
+<meta name="description" content="FILRUP is the voice-powered fuel tracker. Tap the mic, say what you spent, and FILRUP logs the station, gallons, price per gallon and more. Track unlimited vehicles, tag business trips for tax mileage estimates, and export to CSV. English & Español. Try it free for 7 days.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://filrup.app/">
+<meta property="og:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
+<meta property="og:description" content="Say what you spent — FILRUP detects the station, logs it, tracks mileage and taxes, and exports to CSV. English & Español. Try it free for 7 days.">
+<meta property="og:image" content="https://filrup.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
+<meta name="twitter:description" content="Say what you spent — FILRUP does the rest. Mileage, taxes, CSV export. English & Español. Try it free for 7 days.">
+<meta name="twitter:image" content="https://filrup.app/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EFF7F4; --ink:#0F1714; --muted:#5B6A67; --teal:#0D9488; --teal-deep:#0A6B60;
+    --teal-bright:#0FB5A6; --mint:#E3F3EE; --white:#FFFFFF; --line:rgba(15,23,20,.10);
+    --black:#0F1714; --green:#0D9488; --panel:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Outfit",sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:"Bricolage Grotesque",sans-serif;line-height:1.03;letter-spacing:-.02em;color:var(--ink)}
+  ::selection{background:var(--teal);color:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .glow,.grain{display:none}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(239,247,244,.82);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:800;font-size:23px;letter-spacing:.03em;color:var(--ink)}
+  .brand svg,.brand img{width:36px;height:36px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:15px;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:13px}
+  .lang button{background:none;border:none;color:var(--muted);padding:6px 13px;cursor:pointer;font-family:inherit;transition:.2s}
+  .lang button.on{background:var(--teal);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#fff;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(13,148,136,.26)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(13,148,136,.38)}
+  .btn.ghost{background:#fff;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--teal)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  header{position:relative;z-index:2;background:radial-gradient(130% 100% at 72% -12%,#DCEFEA 0%,rgba(220,239,234,0) 56%),var(--bg);padding:66px 0 64px}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--teal);font-size:13px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(13,148,136,.3);padding:7px 15px;border-radius:999px;margin-bottom:24px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1.title{font-size:clamp(44px,6vw,72px);font-weight:800;color:var(--ink)}
+  h1.title .ac{color:var(--teal)}
+  .sub{color:var(--muted);font-size:clamp(17px,2vw,20px);max-width:520px;margin:22px 0 34px}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .store{display:inline-flex;align-items:center;gap:11px;background:#0B1210;border:1px solid rgba(255,255,255,.14);padding:11px 20px;border-radius:14px;color:#fff;transition:transform .2s}
+  .store:hover{transform:translateY(-2px)}
+  .store small{display:block;font-size:11px;color:rgba(255,255,255,.72);letter-spacing:.05em}
+  .store b{font-size:18px;font-family:"Bricolage Grotesque";font-weight:700}
+  .trial-note{color:rgba(255,255,255,.82);font-size:13px;margin-top:14px}
+  header .trial-note{color:var(--muted)}
+  .hero-logo{width:76px;height:76px;display:block;margin-bottom:22px;filter:drop-shadow(0 10px 22px rgba(13,148,136,.18))}
+  .price-badge{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:var(--mint);border:1px solid rgba(13,148,136,.28);border-radius:999px;padding:11px 20px;font-size:15px;font-weight:600;color:var(--ink)}
+  .price-badge .free{color:var(--teal);font-weight:700}
+  .price-badge .dot-sep{width:5px;height:5px;border-radius:50%;background:rgba(13,148,136,.5);display:inline-block}
+  .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .phone-stage{display:flex;justify-content:center;position:relative}
+  .phone{width:296px;height:600px;background:#12161a;border-radius:44px;padding:12px;box-shadow:0 30px 70px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.06);position:relative}
+  .screen{background:linear-gradient(180deg,#0d0f11,#141d1c);border-radius:33px;height:100%;padding:26px 22px;display:flex;flex-direction:column;overflow:hidden;position:relative}
+  .notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:108px;height:26px;background:#000;border-radius:0 0 16px 16px}
+  .scr-top{display:flex;justify-content:space-between;align-items:center;margin-top:30px;color:#8A9694;font-size:13px}
+  .scr-month{color:var(--teal-bright);font-weight:600}
+  .mic-btn{margin:36px auto 14px;width:126px;height:126px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#16988c,#0b5c55);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(13,148,136,.38);position:relative}
+  .mic-btn::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(15,181,166,.5);animation:ring 2.6s infinite}
+  @keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+  .mic-btn svg{width:52px;height:52px;fill:#fff}
+  .tap{text-align:center;color:var(--teal-bright);font-weight:600;font-size:15px;margin-bottom:6px}
+  .eq{display:flex;gap:5px;justify-content:center;align-items:flex-end;height:34px;margin:10px 0 22px}
+  .eq i{width:5px;background:var(--teal-bright);border-radius:3px;animation:eq 1s infinite ease-in-out}
+  .eq i:nth-child(1){animation-delay:0s}.eq i:nth-child(2){animation-delay:.12s}.eq i:nth-child(3){animation-delay:.24s}
+  .eq i:nth-child(4){animation-delay:.36s}.eq i:nth-child(5){animation-delay:.48s}.eq i:nth-child(6){animation-delay:.6s}.eq i:nth-child(7){animation-delay:.72s}
+  @keyframes eq{0%,100%{height:8px}50%{height:30px}}
+  .cards{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .scard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:13px 14px}
+  .scard small{color:var(--teal-bright);font-size:11px;font-weight:600;display:block;margin-bottom:4px}
+  .scard b{font-family:"Bricolage Grotesque";font-size:22px;font-weight:700;color:#fff}
+  .scard span{color:#8A9694;font-size:11px}
+  .phone-stage::after{content:"";position:absolute;width:440px;height:440px;background:radial-gradient(circle,rgba(13,148,136,.16),transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1}
+  #get .price-badge{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.32);color:#fff}
+  #get .price-badge .free{color:#C4F5EC}
+  #get .price-badge .dot-sep{background:rgba(255,255,255,.6)}
+  #get .trial-note{color:rgba(255,255,255,.82)}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.sub{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}.eyebrow{margin-inline:auto}.trial-note{text-align:center}.hero-logo{margin-left:auto;margin-right:auto}.phone-stage{margin-top:10px}}
+
+  section{position:relative;z-index:2;padding:82px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:800}
+  .sec-head p{color:var(--muted);margin-top:14px;font-size:18px}
+  .kicker{color:var(--teal);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;display:block;font-weight:600}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;transition:.25s;box-shadow:0 8px 24px rgba(15,23,20,.04)}
+  .step:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(13,148,136,.12)}
+  .step .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:62px;color:rgba(13,148,136,.16);position:absolute;top:8px;right:22px}
+  .step h3{font-size:22px;margin-bottom:10px;color:var(--ink)}
+  .step p{color:var(--muted);font-size:15px}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:28px;transition:.25s;box-shadow:0 8px 24px rgba(15,23,20,.04)}
+  .feat:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(13,148,136,.12)}
+  .feat .ico{width:48px;height:48px;border-radius:13px;background:var(--mint);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .feat .ico svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2}
+  .feat h3{font-size:19px;margin-bottom:8px;color:var(--ink)}
+  .feat p{color:var(--muted);font-size:14.5px}
+  @media(max-width:820px){.steps,.features{grid-template-columns:1fr}}
+
+  #bilingual .bili{background:var(--mint);border:1px solid var(--line);border-radius:30px;padding:54px;text-align:center}
+  .bili h2{font-size:clamp(28px,4vw,42px);font-weight:800;margin-bottom:14px;color:var(--ink)}
+  .bili .sub{color:var(--muted)}
+  .bili .chips{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+  .chip{background:var(--white);border:1px solid var(--line);padding:9px 18px;border-radius:999px;font-size:14px;color:var(--muted)}
+  .chip b{color:var(--teal)}
+
+  #get{background:linear-gradient(158deg,#13AA9A 0%,#0D9488 52%,#0A6B60 100%);border-radius:36px 36px 0 0;margin-top:8px}
+  .final{text-align:center}
+  .final h2{font-size:clamp(34px,5vw,58px);font-weight:800;margin-bottom:18px;color:#fff}
+  .final p{color:rgba(255,255,255,.92);font-size:19px;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:14px;background:var(--bg)}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot-in .brand{font-size:20px;color:var(--ink)}
+  .foot-in svg,.foot-in img{width:30px;height:30px}
+  .foot-links a{color:var(--muted)!important;transition:.2s}
+  .foot-links a:hover{color:var(--teal)!important}
+</style>
+</head>
+<body>
+<div class="glow"></div><div class="grain"></div>
+
+<nav><div class="wrap nav-in">
+  <a class="brand" href="#"><img src="logo_mark.png" alt="FILRUP" style="width:38px;height:38px;display:block"> FILRUP</a>
+  <div class="nav-links">
+    <a href="#how" data-t="nav1">How it works</a>
+    <a href="#features" data-t="nav2">Features</a>
+    <a href="#bilingual" data-t="nav3">Languages</a>
+    <div class="lang">
+      <button class="on" onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('es',this)">ES</button>
+    </div>
+    <a class="btn" href="#get" data-t="navcta">Download</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap hero">
+  <div>
+    <img src="logo_mark.png" alt="FILRUP" class="hero-logo reveal">
+    <span class="eyebrow reveal"><span class="dot"></span><span data-t="eyebrow">Voice-first fuel tracking</span></span>
+    <h1 class="title reveal" data-t="title">Just speak. <span class="ac">FILRUP</span> tracks it.</h1>
+    <p class="sub reveal" data-t="sub">Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.</p>
+    <div class="cta-row reveal">
+      <a class="store" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M16.5 1.5c0 1.1-.4 2.1-1.2 2.9-.9.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-2.9.8-.9 2.1-1.5 3.2-1.4zM20.3 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.7-3.9-3.1C-1 16.8-1.4 11 1 8c1-1.5 2.6-2.4 4.1-2.4 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.8.7 3.8 2-3.3 1.8-2.8 6.5.6 9.4z"/></svg>
+        <span><small data-t="dl1">Download on the</small><b>App Store</b></span></a>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.azizah52.FILRUP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3.6 2.3c-.3.2-.5.6-.5 1.1v17.2c0 .5.2.9.5 1.1l9.2-9.7L3.6 2.3z" fill="#00D0FF"/><path d="M17 8.3l-3.6-2.1L3.9 2c-.1 0-.2-.1-.3-.1l9.2 9.6L17 8.3z" fill="#00F076"/><path d="M17 15.7l-4.2-4.2L3.6 21.1c.1 0 .2 0 .3-.1l9.5-5.3 3.6-2z" fill="#FF3A44"/><path d="M17 8.3l-4.2 3.2 4.2 4.2 3.4-1.9c.7-.4.7-1.4 0-1.8L17 8.3z" fill="#FFC900"/></svg>
+        <span><small data-t="dl2">Get it on</small><b>Google Play</b></span></a>
+      <a class="btn ghost" href="#how" data-t="learncta">See how it works</a>
+    </div>
+    <div class="price-badge reveal"><span class="free" data-t="trialfree">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen">then $1.99/month</span></div>
+    <p class="trial-note reveal" data-t="platform">Available on iPhone and Android</p>
+  </div>
+  <div class="phone-stage reveal">
+    <div class="phone"><div class="screen"><div class="notch"></div>
+      <div class="scr-top"><span>June 2026</span><span class="scr-month" data-t="vs">vs last month ↓ 8%</span></div>
+      <div class="mic-btn"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+      <div class="tap" data-t="tap">Tap to speak</div>
+      <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="cards">
+        <div class="scard"><small data-t="c1">This month</small><b>$184.50</b><span data-t="c1b">6 fill-ups</span></div>
+        <div class="scard"><small data-t="c2">Most-visited</small><b>Shell</b><span>E Camelback Rd</span></div>
+      </div>
+    </div></div>
+  </div>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head reveal"><span class="kicker" data-t="k1">From pump to logged in seconds</span>
+    <h2 data-t="h1">Tracking fuel has never been this fast</h2></div>
+  <div class="steps">
+    <div class="step reveal"><span class="num">1</span><h3 data-t="s1t">Tap to speak</h3><p data-t="s1p">Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback." Prefer to type? Enter it manually anytime.</p></div>
+    <div class="step reveal"><span class="num">2</span><h3 data-t="s2t">FILRUP logs it</h3><p data-t="s2p">Your amount and the station — with its address — are captured automatically by GPS. Add gallons, price per gallon, odometer, trip type, and payment method.</p></div>
+    <div class="step reveal"><span class="num">3</span><h3 data-t="s3t">See your spending</h3><p data-t="s3p">Watch your monthly total, mileage, MPG, cost per mile, and most-visited stations build up over time — then export it all when you need it.</p></div>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <div class="sec-head reveal"><span class="kicker" data-t="k2">Built for drivers</span>
+    <h2 data-t="h2">Everything you need, nothing you don't</h2></div>
+  <div class="features">
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zM19 11a7 7 0 0 1-14 0M12 18v3"/></svg></div><h3 data-t="f1t">Voice or manual entry</h3><p data-t="f1p">Log a fill-up hands-free in one breath, or type it in manually. The button turns green the moment FILRUP hears your amount.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3 data-t="f2t">GPS station detection</h3><p data-t="f2p">FILRUP detects the gas station you're at — name and address — so you never have to look it up or type it.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div><h3 data-t="f3t">Full fill-up details</h3><p data-t="f3p">Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 17V7l4 4 4-4v10"/><path d="M3 21h18"/></svg></div><h3 data-t="f4t">Unlimited vehicles</h3><p data-t="f4p">Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="18" cy="17" r="2"/></svg></div><h3 data-t="f5t">Business vs personal</h3><p data-t="f5p">Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 19h16"/></svg></div><h3 data-t="f6t">Export &amp; share</h3><p data-t="f6p">Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div><h3 data-t="f7t">Stats &amp; highlights</h3><p data-t="f7p">Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg></div><h3 data-t="f8t">Light &amp; dark mode</h3><p data-t="f8p">Switch between light and dark themes — easy on the eyes in bright daylight or at night.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-t="f9t">English &amp; Español</h3><p data-t="f9p">Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.</p></div>
+  </div>
+</div></section>
+
+<section id="bilingual"><div class="wrap">
+  <div class="bili reveal">
+    <span class="kicker" data-t="k3">Hablamos tu idioma</span>
+    <h2 data-t="bh">One app, two languages</h2>
+    <p class="sub" style="margin:14px auto 0" data-t="bp">FILRUP speaks English and Spanish — every screen, button, and prompt. Track your fuel in the language you think in.</p>
+    <div class="chips">
+      <span class="chip" data-t="chip1"><b>EN</b> · Save Fill-Up</span>
+      <span class="chip" data-t="chip2"><b>ES</b> · Guardar carga</span>
+      <span class="chip" data-t="chip3"><b>EN</b> · Tap to speak</span>
+      <span class="chip" data-t="chip4"><b>ES</b> · Toca para hablar</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="get"><div class="wrap final reveal">
+  <h2 data-t="fh">Stop typing. Start speaking.</h2>
+  <p data-t="fp">FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.</p>
+  <div class="cta-row" style="justify-content:center">
+  <a class="store" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M16.5 1.5c0 1.1-.4 2.1-1.2 2.9-.9.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-2.9.8-.9 2.1-1.5 3.2-1.4zM20.3 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.7-3.9-3.1C-1 16.8-1.4 11 1 8c1-1.5 2.6-2.4 4.1-2.4 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.8.7 3.8 2-3.3 1.8-2.8 6.5.6 9.4z"/></svg>
+    <span><small data-t="dl1b">Download on the</small><b>App Store</b></span></a>
+  <a class="store" href="https://play.google.com/store/apps/details?id=com.azizah52.FILRUP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3.6 2.3c-.3.2-.5.6-.5 1.1v17.2c0 .5.2.9.5 1.1l9.2-9.7L3.6 2.3z" fill="#00D0FF"/><path d="M17 8.3l-3.6-2.1L3.9 2c-.1 0-.2-.1-.3-.1l9.2 9.6L17 8.3z" fill="#00F076"/><path d="M17 15.7l-4.2-4.2L3.6 21.1c.1 0 .2 0 .3-.1l9.5-5.3 3.6-2z" fill="#FF3A44"/><path d="M17 8.3l-4.2 3.2 4.2 4.2 3.4-1.9c.7-.4.7-1.4 0-1.8L17 8.3z" fill="#FFC900"/></svg>
+    <span><small data-t="dl2">Get it on</small><b>Google Play</b></span></a>
+  </div>
+  <div class="price-badge" style="margin-top:24px"><span class="free" data-t="trialfree2">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen2">then $1.99/month</span></div>
+  <p class="trial-note" style="text-align:center" data-t="platform2">Available on iPhone and Android</p>
+</div></section>
+
+<footer><div class="wrap foot-in">
+  <a class="brand" href="#"><img src="logo_mark.png" alt="FILRUP" style="width:38px;height:38px;display:block"> FILRUP</a>
+  <span class="foot-links" style="display:flex;gap:18px;flex-wrap:wrap">
+    <a href="privacy-policy.html" style="color:var(--muted)">Privacy Policy</a>
+    <a href="terms-of-service.html" style="color:var(--muted)">Terms of Service</a>
+    <a href="support.html" style="color:var(--muted)">Support</a>
+  </span>
+  <span>© 2026 FILRUP LLC · <span data-t="foot">Just Speak. FILRUP Tracks It.</span></span>
+</div></footer>
+
+<script>
+const T={
+ en:{nav1:"How it works",nav2:"Features",nav3:"Languages",navcta:"Download",
+  eyebrow:"Voice-first fuel tracking",title:'Just speak. <span class="ac">FILRUP</span> tracks it.',
+  sub:"Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.",
+  dl1:"Download on the",dl1b:"Download on the",dl2:"Get it on",learncta:"See how it works",
+  trial:"Try it free for 7 days · then $1.99/month",trial2:"Try it free for 7 days · then $1.99/month",
+  trialfree:"Free for 7 days",trialthen:"then $1.99/month",trialfree2:"Free for 7 days",trialthen2:"then $1.99/month",
+  platform:"Available on iPhone and Android",platform2:"Available on iPhone and Android",
+  vs:"vs last month ↓ 8%",tap:"Tap to speak",
+  c1:"This month",c1b:"6 fill-ups",c2:"Most-visited",
+  k1:"From pump to logged in seconds",h1:"Tracking fuel has never been this fast",
+  s1t:"Tap to speak",s1p:'Open FILRUP and tap the mic. Say something like "Forty dollars at Shell on Camelback." Prefer to type? Enter it manually anytime.',
+  s2t:"FILRUP logs it",s2p:"Your amount and the station — with its address — are captured automatically by GPS. Add gallons, price per gallon, odometer, trip type, and payment method.",
+  s3t:"See your spending",s3p:"Watch your monthly total, mileage, MPG, cost per mile, and most-visited stations build up over time — then export it all when you need it.",
+  k2:"Built for drivers",h2:"Everything you need, nothing you don't",
+  f1t:"Voice or manual entry",f1p:"Log a fill-up hands-free in one breath, or type it in manually. The button turns green the moment FILRUP hears your amount.",
+  f2t:"GPS station detection",f2p:"FILRUP detects the gas station you're at — name and address — so you never have to look it up or type it.",
+  f3t:"Full fill-up details",f3p:"Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.",
+  f4t:"Unlimited vehicles",f4p:"Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.",
+  f5t:"Business vs personal",f5p:"Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.",
+  f6t:"Export & share",f6p:"Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.",
+  f7t:"Stats & highlights",f7p:"Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.",
+  f8t:"Light & dark mode",f8p:"Switch between light and dark themes — easy on the eyes in bright daylight or at night.",
+  f9t:"English & Español",f9p:"Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.",
+  k3:"Hablamos tu idioma",bh:"One app, two languages",bp:"FILRUP speaks English and Spanish — every screen, button, and prompt. Track your fuel in the language you think in.",
+  fh:"Stop typing. Start speaking.",fp:"FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.",foot:"Just Speak. FILRUP Tracks It."},
+ es:{nav1:"Cómo funciona",nav2:"Funciones",nav3:"Idiomas",navcta:"Descargar",
+  eyebrow:"Registro de combustible por voz",title:'Solo habla. <span class="ac">FILRUP</span> lo registra.',
+  sub:"Registra cada carga con tu voz en segundos — sin buscar recibos. Solo dile a FILRUP cuánto gastaste, o escríbelo tú mismo, y mira crecer tus gastos, tu millaje y tus impuestos.",
+  dl1:"Descárgalo en el",dl1b:"Descárgalo en el",dl2:"Disponible en",learncta:"Ver cómo funciona",
+  trial:"Pruébalo gratis 7 días · luego $1.99/mes",trial2:"Pruébalo gratis 7 días · luego $1.99/mes",
+  trialfree:"Gratis por 7 días",trialthen:"luego $1.99/mes",trialfree2:"Gratis por 7 días",trialthen2:"luego $1.99/mes",
+  platform:"Disponible en iPhone y Android",platform2:"Disponible en iPhone y Android",
+  vs:"vs mes pasado ↓ 8%",tap:"Toca para hablar",
+  c1:"Este mes",c1b:"6 cargas",c2:"Más visitada",
+  k1:"De la bomba a registrado en segundos",h1:"Registrar combustible nunca fue tan rápido",
+  s1t:"Toca para hablar",s1p:'Abre FILRUP y toca el micrófono. Di algo como "Cuarenta dólares en Shell en Camelback." ¿Prefieres escribir? Ingrésalo manualmente cuando quieras.',
+  s2t:"FILRUP lo registra",s2p:"Tu monto y la estación — con su dirección — se capturan automáticamente por GPS. Agrega galones, precio por galón, odómetro, tipo de viaje y método de pago.",
+  s3t:"Mira tus gastos",s3p:"Observa tu total mensual, millaje, MPG, costo por milla y estaciones más visitadas con el tiempo — y expórtalo todo cuando lo necesites.",
+  k2:"Hecho para conductores",h2:"Todo lo que necesitas, nada de más",
+  f1t:"Voz o manual",f1p:"Registra una carga con las manos libres, o escríbela manualmente. El botón se vuelve verde al escuchar tu monto.",
+  f2t:"Detección por GPS",f2p:"FILRUP detecta la gasolinera donde estás — nombre y dirección — para que nunca tengas que buscarla ni escribirla.",
+  f3t:"Detalles completos",f3p:"Captura galones, precio por galón, lectura del odómetro y método de pago — efectivo, débito o crédito — en cada parada.",
+  f4t:"Vehículos ilimitados",f4p:"Agrega todos los vehículos que quieras y registra cada uno por separado — ideal para familias, segundos autos y camionetas de trabajo.",
+  f5t:"Trabajo vs personal",f5p:"Etiqueta cada parada como trabajo o personal, y obtén un resumen de impuestos que estima tu deducción de millaje a la tarifa del IRS.",
+  f6t:"Exportar y compartir",f6p:"Exporta tu historial completo a CSV para Excel o tu contador, o compártelo directo desde la app con un toque.",
+  f7t:"Estadísticas y destacados",f7p:"Totales mensuales, gasto vs mes anterior, estación más visitada, además de tus paradas más baratas y más caras de un vistazo.",
+  f8t:"Modo claro y oscuro",f8p:"Cambia entre temas claro y oscuro — cómodo para la vista a plena luz o de noche.",
+  f9t:"Inglés y Español",f9p:"Totalmente bilingüe. Cambia toda la app entre inglés y español cuando quieras — voz incluida.",
+  k3:"Hablamos tu idioma",bh:"Una app, dos idiomas",bp:"FILRUP habla inglés y español — cada pantalla, botón y mensaje. Registra tu combustible en el idioma en que piensas.",
+  fh:"Deja de escribir. Empieza a hablar.",fp:"FILRUP convierte cada parada en una nota de voz de dos segundos — y mantiene tu millaje, impuestos y registros listos cuando los necesites.",foot:"Solo Habla. FILRUP lo Registra."}
+};
+function setLang(l,btn){
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
+  if(btn)btn.classList.add('on');
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const v=T[l][el.dataset.t]; if(v!==undefined) el.innerHTML=v;
+  });
+}
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+</script>
+</body>
+</html>
