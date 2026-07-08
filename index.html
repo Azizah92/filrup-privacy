@@ -7,17 +7,17 @@
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- Social preview + SEO -->
-<meta name="description" content="FILRUP is the voice-powered fuel tracker. Tap the mic, say what you spent, and FILRUP logs the station, gallons, price per gallon and more. Track unlimited vehicles, tag business trips for tax mileage estimates, and export to CSV. English & Español. Try it free for 7 days.">
+<meta name="description" content="FILRUP is the voice-powered fuel & mileage tracker. Speak your fill-ups and odometer readings, tag business miles for IRS deduction estimates, store your registration, insurance & license behind Face ID, and export accountant-ready reports. English & Español. Free for 7 days.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://filrup.app/">
 <meta property="og:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
-<meta property="og:description" content="Say what you spent — FILRUP detects the station, logs it, tracks mileage and taxes, and exports to CSV. English & Español. Try it free for 7 days.">
+<meta property="og:description" content="Speak your fill-ups and your miles — FILRUP logs it all, estimates your tax deduction, guards your documents with Face ID, and exports accountant-ready reports. English & Español. Free for 7 days.">
 <meta property="og:image" content="https://filrup.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FILRUP — Just Speak. FILRUP Tracks It.">
-<meta name="twitter:description" content="Say what you spent — FILRUP does the rest. Mileage, taxes, CSV export. English & Español. Try it free for 7 days.">
+<meta name="twitter:description" content="Voice fuel & mileage tracking, IRS deduction estimates, Face ID document vault, accountant-ready exports. English & Español. Free for 7 days.">
 <meta name="twitter:image" content="https://filrup.app/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,6 +71,10 @@
   .price-badge{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:var(--mint);border:1px solid rgba(13,148,136,.28);border-radius:999px;padding:11px 20px;font-size:15px;font-weight:600;color:var(--ink)}
   .price-badge .free{color:var(--teal);font-weight:700}
   .price-badge .dot-sep{width:5px;height:5px;border-radius:50%;background:rgba(13,148,136,.5);display:inline-block}
+  .price-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+  .price-row .price-badge{margin-top:0}
+  .final .price-row{justify-content:center}
+  @media(max-width:900px){.price-row{justify-content:center}}
   .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
 
@@ -151,6 +155,7 @@
   <a class="brand" href="#"><img src="logo_mark.png" alt="FILRUP" style="width:38px;height:38px;display:block"> FILRUP</a>
   <div class="nav-links">
     <a href="#how" data-t="nav1">How it works</a>
+    <a href="#mileage" data-t="nav4">Mileage</a>
     <a href="#features" data-t="nav2">Features</a>
     <a href="#bilingual" data-t="nav3">Languages</a>
     <div class="lang">
@@ -164,9 +169,9 @@
 <header><div class="wrap hero">
   <div>
     <img src="logo_mark.png" alt="FILRUP" class="hero-logo reveal">
-    <span class="eyebrow reveal"><span class="dot"></span><span data-t="eyebrow">Voice-first fuel tracking</span></span>
+    <span class="eyebrow reveal"><span class="dot"></span><span data-t="eyebrow">Voice-first fuel &amp; mileage tracking</span></span>
     <h1 class="title reveal" data-t="title">Just speak. <span class="ac">FILRUP</span> tracks it.</h1>
-    <p class="sub reveal" data-t="sub">Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.</p>
+    <p class="sub reveal" data-t="sub">Log every fill-up and every mile with your voice in seconds. Track fuel costs, business miles, and tax deductions — and keep your registration, insurance, and license one tap away.</p>
     <div class="cta-row reveal">
       <a class="store" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M16.5 1.5c0 1.1-.4 2.1-1.2 2.9-.9.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-2.9.8-.9 2.1-1.5 3.2-1.4zM20.3 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.7-3.9-3.1C-1 16.8-1.4 11 1 8c1-1.5 2.6-2.4 4.1-2.4 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.8.7 3.8 2-3.3 1.8-2.8 6.5.6 9.4z"/></svg>
         <span><small data-t="dl1">Download on the</small><b>App Store</b></span></a>
@@ -174,7 +179,10 @@
         <span><small data-t="dl2">Get it on</small><b>Google Play</b></span></a>
       <a class="btn ghost" href="#how" data-t="learncta">See how it works</a>
     </div>
-    <div class="price-badge reveal"><span class="free" data-t="trialfree">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen">then $1.99/month</span></div>
+    <div class="price-row reveal">
+      <div class="price-badge"><span class="free" data-t="trialfree">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen">then $1.99/mo</span></div>
+      <div class="price-badge"><span class="free" data-t="famlabel">Family plan</span><span class="dot-sep"></span><span data-t="famprice">$3.99/mo · up to 6 drivers</span></div>
+    </div>
     <p class="trial-note reveal" data-t="platform">Available on iPhone and Android</p>
   </div>
   <div class="phone-stage reveal">
@@ -201,6 +209,16 @@
   </div>
 </div></section>
 
+<section id="mileage"><div class="wrap">
+  <div class="sec-head reveal"><span class="kicker" data-t="mk">New — voice mileage logging</span>
+    <h2 data-t="mh">Every mile counts. Now they're all logged.</h2></div>
+  <div class="steps">
+    <div class="step reveal"><h3 data-t="m1t">Log My Day</h3><p data-t="m1p">On the road all day? Speak your starting odometer when you head out and your ending odometer when you're done — FILRUP does the math and saves your day as business or personal miles — with a gentle evening nudge if you forget to close out.</p></div>
+    <div class="step reveal"><h3 data-t="m2t">Log a Trip</h3><p data-t="m2p">Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose.</p></div>
+    <div class="step reveal"><h3 data-t="m3t">Watch deductions build</h3><p data-t="m3p">Business miles are estimated at the IRS rate right on your stats — and optional reminders every 3, 5, or 7 days make sure no week slips through untracked.</p></div>
+  </div>
+</div></section>
+
 <section id="features"><div class="wrap">
   <div class="sec-head reveal"><span class="kicker" data-t="k2">Built for drivers</span>
     <h2 data-t="h2">Everything you need, nothing you don't</h2></div>
@@ -210,10 +228,23 @@
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg></div><h3 data-t="f3t">Full fill-up details</h3><p data-t="f3p">Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 17V7l4 4 4-4v10"/><path d="M3 21h18"/></svg></div><h3 data-t="f4t">Unlimited vehicles</h3><p data-t="f4p">Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="18" cy="17" r="2"/></svg></div><h3 data-t="f5t">Business vs personal</h3><p data-t="f5p">Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.</p></div>
-    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 19h16"/></svg></div><h3 data-t="f6t">Export &amp; share</h3><p data-t="f6p">Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M4 19h16"/></svg></div><h3 data-t="f6t">Accountant-ready exports</h3><p data-t="f6p">Tap “Send to My Accountant,” export your fuel log to Excel, or your mileage log to CSV — by month, quarter, year, or all time.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div><h3 data-t="f7t">Stats &amp; highlights</h3><p data-t="f7p">Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg></div><h3 data-t="f8t">Light &amp; dark mode</h3><p data-t="f8p">Switch between light and dark themes — easy on the eyes in bright daylight or at night.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-t="f9t">English &amp; Español</h3><p data-t="f9p">Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3 data-t="f10t">Privacy-first</h3><p data-t="f10p">No accounts, no passwords, no tracking. Your data lives on your phone — and the app works even when you're offline.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v10M8 9l4 4 4-4"/><path d="M5 17a7 7 0 0 0 14 0"/></svg></div><h3 data-t="f11t">Backup &amp; restore</h3><p data-t="f11p">Back everything up to a file you control, and restore it on a new phone in seconds. Your records, your hands.</p></div>
+    <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 5a6 6 0 0 1 6 6v3l2 3H4l2-3v-3a6 6 0 0 1 6-6zM10 20a2 2 0 0 0 4 0"/></svg></div><h3 data-t="f12t">Smart reminders</h3><p data-t="f12p">Renewal alerts 30 and 7 days before insurance, registration, or emissions are due — plus mileage nudges on your schedule.</p></div>
+  </div>
+</div></section>
+
+<section id="documents"><div class="wrap">
+  <div class="sec-head reveal"><span class="kicker" data-t="dk">Your glovebox, digitized</span>
+    <h2 data-t="dh">Documents &amp; renewals, handled</h2></div>
+  <div class="steps">
+    <div class="step reveal"><h3 data-t="d1t">Document vault</h3><p data-t="d1p">Store photos of your registration, insurance card, and driver's license with each vehicle — and share any of them in a tap when you need to.</p></div>
+    <div class="step reveal"><h3 data-t="d2t">Face ID protection</h3><p data-t="d2p">Your driver's license stays locked behind Face ID, so your most sensitive document is for your eyes only.</p></div>
+    <div class="step reveal"><h3 data-t="d3t">Renewal reminders</h3><p data-t="d3p">FILRUP watches your insurance, registration, and emissions dates — with a heads-up 30 days out and an urgent alert at 7 days.</p></div>
   </div>
 </div></section>
 
@@ -240,7 +271,10 @@
   <a class="store" href="https://play.google.com/store/apps/details?id=com.azizah52.FILRUP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3.6 2.3c-.3.2-.5.6-.5 1.1v17.2c0 .5.2.9.5 1.1l9.2-9.7L3.6 2.3z" fill="#00D0FF"/><path d="M17 8.3l-3.6-2.1L3.9 2c-.1 0-.2-.1-.3-.1l9.2 9.6L17 8.3z" fill="#00F076"/><path d="M17 15.7l-4.2-4.2L3.6 21.1c.1 0 .2 0 .3-.1l9.5-5.3 3.6-2z" fill="#FF3A44"/><path d="M17 8.3l-4.2 3.2 4.2 4.2 3.4-1.9c.7-.4.7-1.4 0-1.8L17 8.3z" fill="#FFC900"/></svg>
     <span><small data-t="dl2">Get it on</small><b>Google Play</b></span></a>
   </div>
-  <div class="price-badge" style="margin-top:24px"><span class="free" data-t="trialfree2">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen2">then $1.99/month</span></div>
+  <div class="price-row" style="margin-top:24px">
+    <div class="price-badge"><span class="free" data-t="trialfree2">Free for 7 days</span><span class="dot-sep"></span><span data-t="trialthen2">then $1.99/mo</span></div>
+    <div class="price-badge"><span class="free" data-t="famlabel2">Family plan</span><span class="dot-sep"></span><span data-t="famprice2">$3.99/mo · up to 6 drivers</span></div>
+  </div>
   <p class="trial-note" style="text-align:center" data-t="platform2">Available on iPhone and Android</p>
 </div></section>
 
@@ -257,11 +291,11 @@
 <script>
 const T={
  en:{nav1:"How it works",nav2:"Features",nav3:"Languages",navcta:"Download",
-  eyebrow:"Voice-first fuel tracking",title:'Just speak. <span class="ac">FILRUP</span> tracks it.',
-  sub:"Log every fill-up with your voice in seconds — no receipts to hunt for. Just tell FILRUP what you spent, or type it in yourself, and watch your fuel costs, mileage, and taxes add up.",
+  eyebrow:"Voice-first fuel & mileage tracking",title:'Just speak. <span class="ac">FILRUP</span> tracks it.',
+  sub:"Log every fill-up and every mile with your voice in seconds. Track fuel costs, business miles, and tax deductions — and keep your registration, insurance, and license one tap away.",
   dl1:"Download on the",dl1b:"Download on the",dl2:"Get it on",learncta:"See how it works",
   trial:"Try it free for 7 days · then $1.99/month",trial2:"Try it free for 7 days · then $1.99/month",
-  trialfree:"Free for 7 days",trialthen:"then $1.99/month",trialfree2:"Free for 7 days",trialthen2:"then $1.99/month",
+  trialfree:"Free for 7 days",trialthen:"then $1.99/mo",trialfree2:"Free for 7 days",trialthen2:"then $1.99/mo",famlabel:"Family plan",famprice:"$3.99/mo · up to 6 drivers",famlabel2:"Family plan",famprice2:"$3.99/mo · up to 6 drivers",
   platform:"Available on iPhone and Android",platform2:"Available on iPhone and Android",
   vs:"vs last month ↓ 8%",tap:"Tap to speak",
   c1:"This month",c1b:"6 fill-ups",c2:"Most-visited",
@@ -275,18 +309,30 @@ const T={
   f3t:"Full fill-up details",f3p:"Capture gallons, price per gallon, odometer reading, and payment method — cash, debit, or credit — on every stop.",
   f4t:"Unlimited vehicles",f4p:"Add as many vehicles as you like and track each one separately — perfect for families, second cars, and work trucks.",
   f5t:"Business vs personal",f5p:"Tag each stop as business or personal, then get a tax summary that estimates your mileage deduction at the IRS rate.",
-  f6t:"Export & share",f6p:"Export your full history to CSV for Excel or your accountant, or share it straight from the app in a tap.",
+  f6t:"Accountant-ready exports",f6p:"Tap “Send to My Accountant,” export your fuel log to Excel, or your mileage log to CSV — by month, quarter, year, or all time.",
   f7t:"Stats & highlights",f7p:"Monthly totals, spending vs last month, most-visited station, plus your cheapest and most-expensive stops at a glance.",
   f8t:"Light & dark mode",f8p:"Switch between light and dark themes — easy on the eyes in bright daylight or at night.",
   f9t:"English & Español",f9p:"Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.",
+  f10t:"Privacy-first",f10p:"No accounts, no passwords, no tracking. Your data lives on your phone — and the app works even when you're offline.",
+  f11t:"Backup & restore",f11p:"Back everything up to a file you control, and restore it on a new phone in seconds. Your records, your hands.",
+  f12t:"Smart reminders",f12p:"Renewal alerts 30 and 7 days before insurance, registration, or emissions are due — plus mileage nudges on your schedule.",
   k3:"Hablamos tu idioma",bh:"One app, two languages",bp:"FILRUP speaks English and Spanish — every screen, button, and prompt. Track your fuel in the language you think in.",
-  fh:"Stop typing. Start speaking.",fp:"FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.",foot:"Just Speak. FILRUP Tracks It."},
+  fh:"Stop typing. Start speaking.",fp:"FILRUP turns every gas stop into a two-second voice note — and keeps your mileage, taxes, and records ready when you need them.",foot:"Just Speak. FILRUP Tracks It.",
+  nav4:"Mileage",
+  mk:"New — voice mileage logging",mh:"Every mile counts. Now they're all logged.",
+  m1t:"Log My Day",m1p:"On the road all day? Speak your starting odometer when you head out and your ending odometer when you're done — FILRUP does the math and saves your day as business or personal miles — with a gentle evening nudge if you forget to close out.",
+  m2t:"Log a Trip",m2p:"Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose.",
+  m3t:"Watch deductions build",m3p:"Business miles are estimated at the IRS rate right on your stats — and optional reminders every 3, 5, or 7 days make sure no week slips through untracked.",
+  dk:"Your glovebox, digitized",dh:"Documents & renewals, handled",
+  d1t:"Document vault",d1p:"Store photos of your registration, insurance card, and driver's license with each vehicle — and share any of them in a tap when you need to.",
+  d2t:"Face ID protection",d2p:"Your driver's license stays locked behind Face ID, so your most sensitive document is for your eyes only.",
+  d3t:"Renewal reminders",d3p:"FILRUP watches your insurance, registration, and emissions dates — with a heads-up 30 days out and an urgent alert at 7 days."},
  es:{nav1:"Cómo funciona",nav2:"Funciones",nav3:"Idiomas",navcta:"Descargar",
-  eyebrow:"Registro de combustible por voz",title:'Solo habla. <span class="ac">FILRUP</span> lo registra.',
-  sub:"Registra cada carga con tu voz en segundos — sin buscar recibos. Solo dile a FILRUP cuánto gastaste, o escríbelo tú mismo, y mira crecer tus gastos, tu millaje y tus impuestos.",
+  eyebrow:"Combustible y millaje por voz",title:'Solo habla. <span class="ac">FILRUP</span> lo registra.',
+  sub:"Registra cada carga y cada milla con tu voz en segundos. Controla tus gastos de combustible, millas de trabajo y deducciones — y ten tu registro, seguro y licencia a un toque de distancia.",
   dl1:"Descárgalo en el",dl1b:"Descárgalo en el",dl2:"Disponible en",learncta:"Ver cómo funciona",
   trial:"Pruébalo gratis 7 días · luego $1.99/mes",trial2:"Pruébalo gratis 7 días · luego $1.99/mes",
-  trialfree:"Gratis por 7 días",trialthen:"luego $1.99/mes",trialfree2:"Gratis por 7 días",trialthen2:"luego $1.99/mes",
+  trialfree:"Gratis por 7 días",trialthen:"luego $1.99/mes",trialfree2:"Gratis por 7 días",trialthen2:"luego $1.99/mes",famlabel:"Plan familiar",famprice:"$3.99/mes · hasta 6 conductores",famlabel2:"Plan familiar",famprice2:"$3.99/mes · hasta 6 conductores",
   platform:"Disponible en iPhone y Android",platform2:"Disponible en iPhone y Android",
   vs:"vs mes pasado ↓ 8%",tap:"Toca para hablar",
   c1:"Este mes",c1b:"6 cargas",c2:"Más visitada",
@@ -300,12 +346,24 @@ const T={
   f3t:"Detalles completos",f3p:"Captura galones, precio por galón, lectura del odómetro y método de pago — efectivo, débito o crédito — en cada parada.",
   f4t:"Vehículos ilimitados",f4p:"Agrega todos los vehículos que quieras y registra cada uno por separado — ideal para familias, segundos autos y camionetas de trabajo.",
   f5t:"Trabajo vs personal",f5p:"Etiqueta cada parada como trabajo o personal, y obtén un resumen de impuestos que estima tu deducción de millaje a la tarifa del IRS.",
-  f6t:"Exportar y compartir",f6p:"Exporta tu historial completo a CSV para Excel o tu contador, o compártelo directo desde la app con un toque.",
+  f6t:"Exportes para tu contador",f6p:"Toca “Enviar a mi contador”, exporta tu registro de combustible a Excel o tu millaje a CSV — por mes, trimestre, año o todo el historial.",
   f7t:"Estadísticas y destacados",f7p:"Totales mensuales, gasto vs mes anterior, estación más visitada, además de tus paradas más baratas y más caras de un vistazo.",
   f8t:"Modo claro y oscuro",f8p:"Cambia entre temas claro y oscuro — cómodo para la vista a plena luz o de noche.",
   f9t:"Inglés y Español",f9p:"Totalmente bilingüe. Cambia toda la app entre inglés y español cuando quieras — voz incluida.",
+  f10t:"Privacidad primero",f10p:"Sin cuentas, sin contraseñas, sin rastreo. Tus datos viven en tu teléfono — y la app funciona incluso sin conexión.",
+  f11t:"Respaldo y restauración",f11p:"Respalda todo en un archivo que tú controlas, y restáuralo en un teléfono nuevo en segundos. Tus registros, en tus manos.",
+  f12t:"Recordatorios inteligentes",f12p:"Alertas de renovación 30 y 7 días antes de que venza tu seguro, registro o emisiones — más recordatorios de millaje a tu ritmo.",
   k3:"Hablamos tu idioma",bh:"Una app, dos idiomas",bp:"FILRUP habla inglés y español — cada pantalla, botón y mensaje. Registra tu combustible en el idioma en que piensas.",
-  fh:"Deja de escribir. Empieza a hablar.",fp:"FILRUP convierte cada parada en una nota de voz de dos segundos — y mantiene tu millaje, impuestos y registros listos cuando los necesites.",foot:"Solo Habla. FILRUP lo Registra."}
+  fh:"Deja de escribir. Empieza a hablar.",fp:"FILRUP convierte cada parada en una nota de voz de dos segundos — y mantiene tu millaje, impuestos y registros listos cuando los necesites.",foot:"Solo Habla. FILRUP lo Registra.",
+  nav4:"Millaje",
+  mk:"Nuevo — millaje por voz",mh:"Cada milla cuenta. Ahora todas quedan registradas.",
+  m1t:"Registra tu día",m1p:"¿Todo el día en la carretera? Di tu odómetro inicial al salir y el final al terminar — FILRUP hace el cálculo y guarda tu día como millas de trabajo o personales — con un recordatorio por la noche si olvidas cerrar tu día.",
+  m2t:"Registra un viaje",m2p:"¿Una cita con un cliente? Registra un viaje ingresando las millas directamente, o las lecturas inicial y final del odómetro — FILRUP calcula la distancia y etiqueta el propósito.",
+  m3t:"Mira crecer tus deducciones",m3p:"Tus millas de trabajo se estiman a la tarifa del IRS en tus estadísticas — y recordatorios opcionales cada 3, 5 o 7 días aseguran que ninguna semana quede sin registrar.",
+  dk:"Tu guantera, digital",dh:"Documentos y renovaciones, resueltos",
+  d1t:"Bóveda de documentos",d1p:"Guarda fotos de tu registro, tarjeta de seguro y licencia de conducir con cada vehículo — y comparte cualquiera con un toque cuando lo necesites.",
+  d2t:"Protección con Face ID",d2p:"Tu licencia de conducir queda protegida con Face ID — tu documento más sensible, solo para tus ojos.",
+  d3t:"Recordatorios de renovación",d3p:"FILRUP vigila tus fechas de seguro, registro y emisiones — con un aviso 30 días antes y una alerta urgente a los 7 días."}
 };
 function setLang(l,btn){
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));
