@@ -247,7 +247,7 @@
     <h2 data-t="mh">Every mile counts. Now they're all logged.</h2></div>
   <div class="steps">
     <div class="step reveal"><h3 data-t="m1t">Log My Day</h3><p data-t="m1p">On the road all day? Speak your starting odometer when you head out and your ending odometer when you're done — FILRUP does the math and saves your day as business or personal miles — with a gentle evening nudge if you forget to close out. Perfect for rideshare and delivery drivers — Uber, Lyft, DoorDash, Instacart, Shipt, and Amazon Flex.</p></div>
-    <div class="step reveal"><h3 data-t="m2t">Log a Trip</h3><p data-t="m2p">Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose. Perfect for realtors, self-employed contractors, off-duty police &amp; private-security pros, and other 1099 drivers.</p></div>
+    <div class="step reveal"><h3 data-t="m2t">Log a Trip</h3><p data-t="m2p">Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose. Perfect for realtors, self-employed contractors, off-duty and retired law enforcement, private-security pros, and other 1099 drivers.</p></div>
     <div class="step reveal"><h3 data-t="m3t">Watch deductions build</h3><p data-t="m3p">Business miles are estimated at the IRS rate right on your stats — and optional reminders every 3, 5, or 7 days make sure no week slips through untracked.</p></div>
   </div>
 </div></section>
@@ -278,6 +278,12 @@
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/></svg></div><h3 data-t="f8t">Light &amp; dark mode</h3><p data-t="f8p">Switch between light and dark themes — easy on the eyes in bright daylight or at night.</p></div>
     <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-t="f9t">English &amp; Español</h3><p data-t="f9p">Fully bilingual. Switch the whole app between English and Spanish whenever you like — voice included.</p></div>
   </div></div>
+</div></section>
+
+<section id="offduty"><div class="wrap">
+  <div class="sec-head reveal"><span class="kicker" data-t="offk">For off-duty &amp; retired law enforcement</span>
+    <h2 data-t="offh">Off-duty details are 1099 miles</h2></div>
+  <p class="sub reveal" style="max-width:760px;margin:0 auto;text-align:center" data-t="offp">Pulling a security detail, an event, or a construction site off the clock? That pay comes on a 1099 — which means the miles you drive to every job are a deduction most officers never claim. FILRUP logs each drive by voice, keeps your fuel receipts as backup, and hands you the whole month as one PDF with the deduction already estimated at the IRS rate. Drive 40 miles between two details and that's about $29 back. Your registration and insurance stay behind Face ID, too — one tap when a site supervisor asks. Bring the report to your accountant and let them do the rest.</p>
 </div></section>
 
 <section id="documents"><div class="wrap">
@@ -365,8 +371,9 @@ const T={
   lv3:"An open house across town. A listing appointment. An evening of Uber runs. A full day of deliveries. If it's a business mile, it's a deduction \u2014 and FILRUP makes sure not one slips away, from a single car to a whole fleet, gas or electric.",
   mk:"New — voice mileage logging",mh:"Every mile counts. Now they're all logged.",
   m1t:"Log My Day",m1p:"On the road all day? Speak your starting odometer when you head out and your ending odometer when you're done — FILRUP does the math and saves your day as business or personal miles — with a gentle evening nudge if you forget to close out. Perfect for rideshare and delivery drivers — Uber, Lyft, DoorDash, Instacart, Shipt, and Amazon Flex.",
-  m2t:"Log a Trip",m2p:"Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose. Perfect for realtors, self-employed contractors, off-duty police &amp; private-security pros, and other 1099 drivers.",
+  m2t:"Log a Trip",m2p:"Meeting a client across town? Log a single trip by entering miles directly, or start and end odometer readings — FILRUP calculates the distance and tags the purpose. Perfect for realtors, self-employed contractors, off-duty and retired law enforcement, private-security pros, and other 1099 drivers.",
   m3t:"Watch deductions build",m3p:"Business miles are estimated at the IRS rate right on your stats — and optional reminders every 3, 5, or 7 days make sure no week slips through untracked.",
+  offk:"For off-duty & retired law enforcement",offh:"Off-duty details are 1099 miles",offp:"Pulling a security detail, an event, or a construction site off the clock? That pay comes on a 1099 — which means the miles you drive to every job are a deduction most officers never claim. FILRUP logs each drive by voice, keeps your fuel receipts as backup, and hands you the whole month as one PDF with the deduction already estimated at the IRS rate. Drive 40 miles between two details and that's about $29 back. Your registration and insurance stay behind Face ID, too — one tap when a site supervisor asks. Bring the report to your accountant and let them do the rest.",
   dk:"Your glovebox, digitized",dh:"Documents & renewals, handled",
   d1t:"Document vault",d1p:"Store photos of your registration, insurance card, and driver's license with each vehicle — and share any of them in a tap when you need to.",
   d2t:"Face ID protection",d2p:"Your driver's license stays locked behind Face ID, so your most sensitive document is for your eyes only.",
@@ -407,8 +414,9 @@ const T={
   lv3:"Una casa abierta al otro lado de la ciudad. Una cita de listado. Una noche manejando Uber. Un d\u00eda entero de entregas. Si es una milla de trabajo, es una deducci\u00f3n \u2014 y FILRUP se asegura de que ninguna se escape, desde un solo auto hasta toda una flotilla, a gasolina o el\u00e9ctrico.",
   mk:"Nuevo — millaje por voz",mh:"Cada milla cuenta. Ahora todas quedan registradas.",
   m1t:"Registra tu día",m1p:"¿Todo el día en la carretera? Di tu odómetro inicial al salir y el final al terminar — FILRUP hace el cálculo y guarda tu día como millas de trabajo o personales — con un recordatorio por la noche si olvidas cerrar tu día. Ideal para conductores de rideshare, reparto y Amazon Flex.",
-  m2t:"Registra un viaje",m2p:"¿Una cita con un cliente? Registra un viaje ingresando las millas directamente, o las lecturas inicial y final del odómetro — FILRUP calcula la distancia y etiqueta el propósito. Ideal para agentes de bienes raíces, contratistas, enfermeras y profesionales de seguridad.",
+  m2t:"Registra un viaje",m2p:"¿Una cita con un cliente? Registra un viaje ingresando las millas directamente, o las lecturas inicial y final del odómetro — FILRUP calcula la distancia y etiqueta el propósito. Ideal para agentes de bienes raíces, contratistas, enfermeras, profesionales de seguridad y policías fuera de servicio y jubilados.",
   m3t:"Mira crecer tus deducciones",m3p:"Tus millas de trabajo se estiman a la tarifa del IRS en tus estadísticas — y recordatorios opcionales cada 3, 5 o 7 días aseguran que ninguna semana quede sin registrar.",
+  offk:"Para policías fuera de servicio y jubilados",offh:"El trabajo fuera de servicio son millas 1099",offp:"¿Cubres un servicio de seguridad, un evento o una obra fuera de tu horario? Ese pago llega en un 1099, y cada milla que manejas hasta esos trabajos es una deducción que la mayoría de los oficiales nunca reclama. FILRUP registra cada viaje por voz, guarda tus recibos de gasolina como respaldo y te entrega el mes completo en un solo PDF con la deducción ya estimada a la tarifa del IRS. Maneja 40 millas entre dos servicios y son unos $29 de vuelta. El registro y el seguro de tu vehículo también quedan detrás de Face ID: un toque cuando el supervisor te los pida. Lleva el reporte a tu contador y deja que él haga el resto.",
   dk:"Tu guantera, digital",dh:"Documentos y renovaciones, resueltos",
   d1t:"Bóveda de documentos",d1p:"Guarda fotos de tu registro, tarjeta de seguro y licencia de conducir con cada vehículo — y comparte cualquiera con un toque cuando lo necesites.",
   d2t:"Protección con Face ID",d2p:"Tu licencia de conducir queda protegida con Face ID — tu documento más sensible, solo para tus ojos.",
