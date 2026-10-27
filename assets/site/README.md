@@ -11,8 +11,6 @@ docs/store-screenshots/1.5.25-preview/<name>-<lang>-light.png):
 - expenses  Expenses (All 2026)
 - packet    Tax packet
 
-One image for both languages:
-
-- gps-map.jpg  Trip map card for "Automatic trips · Coming soon" (from the app
-               repo's docs/site/gps-map.png, 900 px wide), shown in a map-card
-               frame (not a phone frame — it is a cropped map, not a full screen).
+- gps-map   Trip map card for "Automatic trips · Coming soon" (from the app
+            repo's docs/site/gps-map.png / gps-map-es.png, 900 px wide), shown in a
+            map-card frame (a cropped map, not a full screen).
