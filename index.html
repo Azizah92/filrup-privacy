@@ -129,13 +129,8 @@ a{color:inherit}
 .foot{padding-block:28px;font-size:15px;color:var(--fg-2)}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .foot a{text-decoration:none;margin-right:16px}
+.already{margin-top:18px;font-size:17px;color:var(--fg);font-weight:600}
 .soon{display:inline-block;margin-left:8px;background:var(--ink);color:var(--ink-fg);border-radius:999px;padding:3px 10px;font-size:12px;letter-spacing:.08em;vertical-align:middle}
-.notify{margin-top:22px;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:18px;max-width:440px}
-.notify b{font-family:var(--display);font-weight:700;font-size:18px;display:block}
-.notify form{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.notify input{flex:1 1 200px;min-width:0;font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
-.notify button{font-family:var(--display);font-weight:600;font-size:16px;border:0;border-radius:12px;padding:12px 18px;background:var(--teal);color:#fff;cursor:pointer}
-.notify .ok{margin-top:10px;font-size:15px;color:var(--teal);font-weight:600}
 </style>
 </head>
 <body>
@@ -188,10 +183,7 @@ a{color:inherit}
     <div class="text"><div class="eyebrow"><span data-t="aEye">Automatic trips</span><span class="soon" data-t="aSoon">Coming soon</span></div><h3 data-t="aH3">Your drives, logged for you.</h3>
       <p data-t="aP">Soon FILRUP will notice when you drive, record the trip start to finish, and ask you for a job when you park. Every trip on a map, within a mile of your odometer. Walking and parking-lot moves are flagged, not counted. You confirm every trip — nothing counts until you do.</p>
       <div class="chips"><span class="chip" data-t="aC1">Auto-tracking</span><span class="chip" data-t="aC2">Trip maps</span><span class="chip" data-t="aC3">One-tap classify</span><span class="chip" data-t="aC4">14-day free trial</span></div>
-      <div class="notify"><b data-t="nH">Be the first to know</b>
-        <form id="notifyForm" novalidate><input id="notifyEmail" type="email" required autocomplete="email" inputmode="email" data-ph="nPh" placeholder="you@example.com" aria-label="Email"><button type="submit" data-t="nBtn">Notify me</button></form>
-        <p class="ok" id="notifyOk" hidden data-t="nOk">Thanks! Your mail app opened with the note to hello@filrup.app — tap Send and you're on the list.</p>
-      </div></div>
+      <p class="already" data-t="aAlready">Already have FILRUP? Auto-tracking arrives as an update — nothing to do.</p></div>
     <div class="mapcard"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name" data-t="aPh">Trip map</span></div><img class="shot" data-shot="gps-map" data-one="jpg" src="assets/site/gps-map.jpg" width="900" height="795" alt="A trip on the map: 7.7 mi, 24 min, worth $5.83 at 76¢ a mile, start 6:34 AM, end 6:58 AM" style="display:none"></div>
   </div>
 
@@ -274,7 +266,7 @@ const T={
     fEye:"Fuel",fH3:"See exactly what you spend on fuel.",fP:"Say it or type it. FILRUP logs the station, gallons, price and receipt, then shows your monthly total, average price per gallon and cost per mile.",fC1:"Voice entry",fC2:"Receipt scan",fC3:"Cost per mile",
     mEye:"Miles",mH3:"Track every business mile.",mP:"Log a trip or your whole day, tag it to the job, and watch your IRS deduction estimate build. Business and personal stay separate.",mC1:"Log my day",mC2:"Log a trip",mC3:"Business vs personal",
     aEye:"Automatic trips",aSoon:"Coming soon",aH3:"Your drives, logged for you.",aP:"Soon FILRUP will notice when you drive, record the trip start to finish, and ask you for a job when you park. Every trip on a map, within a mile of your odometer. Walking and parking-lot moves are flagged, not counted. You confirm every trip — nothing counts until you do.",aC1:"Auto-tracking",aC2:"Trip maps",aC3:"One-tap classify",aC4:"14-day free trial",aPh:"Trip map",
-    nH:"Be the first to know",nPh:"you@example.com",nBtn:"Notify me",nOk:"Thanks! Your mail app opened with the note to hello@filrup.app — tap Send and you're on the list.",nSubject:"Notify me: FILRUP automatic trips",nBody:"Please add me to the FILRUP automatic trips launch list: ",
+    aAlready:"Already have FILRUP? Auto-tracking arrives as an update — nothing to do.",
     eEye:"Expenses",eH3:"Track business expenses by job.",eP:"Scan the receipt, pick the job, done. Real estate, rideshare, delivery, nursing, security and more, or name your own. Everything files under the right work for tax time. Import from a spreadsheet — bring your existing expenses, miles and fuel in from a CSV.",eC1:"Receipt scanner",eC2:"Job catalog",eC3:"Custom jobs",eC4:"CSV import",
     tEye:"Tax packet",tH3:"Your tax packet, ready in January.",tP:"One tap sends your year — miles, fuel, expenses, receipts — as a PDF and an Excel file with live formulas to your tax pro. FILRUP reminds you when it's ready.",tC1:"PDF + Excel",tC2:"Send to my tax pro",tC3:"IRS-rate estimate",
     bandEye:"What you're leaving behind",bandNum:"$7,600",bandH2:"in missed deductions every year.",bandP:"10,000 business miles × the $0.76 IRS rate. Real estate, rideshare, delivery, contractors, nurses, security — if you drive for work, those miles are money.",bandFine:"Estimates only. Not tax advice — confirm with a tax professional.",
@@ -307,7 +299,7 @@ const T={
     fEye:"Gasolina",fH3:"Mira exactamente cuánto gastas en gasolina.",fP:"Dilo o escríbelo. FILRUP registra la estación, los galones, el precio y el recibo, y te muestra el total mensual, el precio promedio por galón y el costo por milla.",fC1:"Entrada por voz",fC2:"Escaneo de recibos",fC3:"Costo por milla",
     mEye:"Millas",mH3:"Registra cada milla de trabajo.",mP:"Registra un viaje o todo tu día, asígnalo a un trabajo y mira crecer tu estimado de deducción del IRS. Lo de trabajo y lo personal siempre separados.",mC1:"Registrar mi día",mC2:"Registrar un viaje",mC3:"Trabajo vs personal",
     aEye:"Viajes automáticos",aSoon:"Muy pronto",aH3:"Tus viajes, registrados por ti.",aP:"Pronto FILRUP notará cuando manejas, registrará el viaje de principio a fin y te pedirá el trabajo cuando te estaciones. Cada viaje en un mapa, a menos de una milla de tu odómetro. Caminar y moverte en el estacionamiento se marca, no se cuenta. Tú confirmas cada viaje: nada cuenta hasta que lo hagas.",aC1:"Seguimiento automático",aC2:"Mapas de viajes",aC3:"Clasifica con un toque",aC4:"14 días gratis",aPh:"Mapa del viaje",
-    nH:"Sé el primero en saberlo",nPh:"tu@correo.com",nBtn:"Avísame",nOk:"¡Gracias! Se abrió tu app de correo con la nota para hello@filrup.app — toca Enviar y ya estás en la lista.",nSubject:"Avísame: viajes automáticos de FILRUP",nBody:"Por favor agrégame a la lista de lanzamiento de viajes automáticos de FILRUP: ",
+    aAlready:"¿Ya tienes FILRUP? El seguimiento automático llegará como actualización.",
     eEye:"Gastos",eH3:"Registra gastos de trabajo por empleo.",eP:"Escanea el recibo, elige el trabajo, listo. Bienes raíces, viajes compartidos, entregas, enfermería, seguridad y más, o ponle tu propio nombre. Todo queda archivado bajo el trabajo correcto para tus impuestos. Importa desde una hoja de cálculo: trae tus gastos, millas y gasolina desde un archivo CSV.",eC1:"Escáner de recibos",eC2:"Catálogo de trabajos",eC3:"Trabajos personalizados",eC4:"Importar CSV",
     tEye:"Paquete fiscal",tH3:"Tu paquete fiscal, listo en enero.",tP:"Con un toque envías tu año — millas, gasolina, gastos y recibos — a tu contador como un PDF y un Excel con fórmulas activas. FILRUP te avisa cuando está listo.",tC1:"PDF + Excel",tC2:"Enviar a mi contador",tC3:"Estimado a tarifa del IRS",
     bandEye:"Lo que estás dejando ir",bandNum:"$7,600",bandH2:"en deducciones perdidas cada año.",bandP:"10,000 millas de trabajo × la tarifa del IRS de $0.76. Bienes raíces, viajes compartidos, entregas, contratistas, enfermeros, seguridad: si manejas por trabajo, esas millas son dinero.",bandFine:"Solo estimados. No es asesoría fiscal — confírmalo con un profesional de impuestos.",
@@ -359,22 +351,6 @@ function showShot(img,l){
   var tog=document.getElementById('langToggle');
   if(tog) tog.addEventListener('click',function(){applyLang(document.documentElement.lang==='es'?'en':'es');});
   applyLang(saved);
-})();
-// "Be the first to know": the site is static (no form handler), so the email
-// goes to hello@filrup.app through the visitor's mail app (fixed subject, so the
-// launch list is one inbox filter).
-(function(){
-  var f=document.getElementById('notifyForm'); if(!f) return;
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var l=document.documentElement.lang==='es'?'es':'en';
-    var em=document.getElementById('notifyEmail');
-    var v=(em.value||'').trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ em.focus(); em.reportValidity && em.reportValidity(); return; }
-    try{ gtag('event','notify_signup',{section:'auto_trips'}); }catch(err){}
-    location.href='mailto:hello@filrup.app?subject='+encodeURIComponent(T[l].nSubject)+'&body='+encodeURIComponent(T[l].nBody+v);
-    document.getElementById('notifyOk').hidden=false;
-  });
 })();
 </script>
 </body>
