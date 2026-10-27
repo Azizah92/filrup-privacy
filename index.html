@@ -129,14 +129,41 @@ a{color:inherit}
 .foot{padding-block:28px;font-size:15px;color:var(--fg-2)}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .foot a{text-decoration:none;margin-right:16px}
+.annc{background:#151a2d;color:#4fcbc5;font-family:var(--display);font-weight:600;font-size:15px}
+.annc .wrap{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding-block:8px;text-align:center}
+.annc a{color:#4fcbc5;text-decoration:none}
+.annc a:hover{text-decoration:underline}
+.annc button{flex:none;background:none;border:0;color:#a6dbd8;font-size:22px;line-height:1;cursor:pointer;padding:4px 6px}
+.soonpill{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--teal);color:#fff;border-radius:999px;padding:8px 16px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.08em;text-decoration:none}
+.gps{background:#151a2d;color:#fff;padding-block:80px;margin-block:24px}
+.gps .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+.gps .wrap>*{min-width:0}
+.gps .mapcard{justify-self:stretch;margin-inline:auto}
+.gps .eyebrow{color:#a6dbd8}
+.gps .soon{background:#4fcbc5;color:#151a2d;margin-left:10px}
+.gps h3{font-size:clamp(40px,6.4vw,72px);font-weight:800;margin-top:12px}
+.gps p{color:#c6ced9;font-size:19px;margin-top:18px;max-width:44ch}
+.gps .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.gps .chip{background:#4fcbc5;color:#151a2d}
+.gps .already{color:#fff}
+.gps .mapcard{max-width:600px;border:1px solid rgba(79,203,197,.5);box-shadow:0 0 0 1px rgba(79,203,197,.25),0 0 70px rgba(79,203,197,.45),0 30px 70px rgba(0,0,0,.45)}
+.stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(79,203,197,.35);border-radius:20px;padding:24px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,42px);line-height:1.05;color:#4fcbc5}
+.stat span{display:block;color:#c6ced9;font-size:17px;margin-top:8px}
+@media (max-width:820px){.gps .wrap{grid-template-columns:1fr;gap:28px}.stats{grid-template-columns:1fr}.gps{padding-block:56px}}
+.hintlive{position:absolute;left:5%;right:5%;top:calc(49.51% - .6em);font-size:2.9cqw;line-height:1.2;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-style:italic;color:#4b5563;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .45s ease;pointer-events:none}
+.hintlive.out{opacity:0}
+.shotwrap{position:relative;container-type:inline-size}
 .already{margin-top:18px;font-size:17px;color:var(--fg);font-weight:600}
 .soon{display:inline-block;margin-left:8px;background:var(--ink);color:var(--ink-fg);border-radius:999px;padding:3px 10px;font-size:12px;letter-spacing:.08em;vertical-align:middle}
 </style>
 </head>
 <body>
+<div class="annc" id="annc"><div class="wrap"><a href="#auto" data-t="anncText">⚡ Automatic trip tracking is coming — every drive logged, mapped and ready for taxes. See how it works ↓</a><button type="button" id="anncX" aria-label="Dismiss" data-al="anncClose">×</button></div></div>
 <header class="top"><div class="wrap">
   <div class="logo">FIL<b>RUP</b></div>
-  <nav class="nav"><a href="#renewals" data-t="navRenewals">Renewals</a><a href="#fuel" data-t="navFuel">Fuel</a><a href="#miles" data-t="navMiles">Miles</a><a href="#expenses" data-t="navExpenses">Expenses</a><a href="#taxes" data-t="navTaxes">Tax packet</a><a href="#how" data-t="navHow">How it works</a></nav>
+  <nav class="nav"><a href="#renewals" data-t="navRenewals">Renewals</a><a href="#fuel" data-t="navFuel">Fuel</a><a href="#miles" data-t="navMiles">Miles</a><a href="#auto" data-t="navAuto">Auto-tracking</a><a href="#expenses" data-t="navExpenses">Expenses</a><a href="#taxes" data-t="navTaxes">Tax packet</a><a href="#how" data-t="navHow">How it works</a></nav>
   <div style="display:flex;gap:10px;align-items:center"><button class="lang" id="langToggle" type="button" aria-label="Switch language"><b>EN</b> / ES</button><a class="btn btn-dark" style="padding:10px 16px;font-size:15px" href="#get" data-t="navGet">Get the app</a></div>
 </div></header>
 
@@ -145,6 +172,7 @@ a{color:inherit}
     <div class="eyebrow" data-t="eyebrowTop">Renewals · Fuel · Miles · Expenses · Tax packet</div>
     <h1 style="margin-top:12px" data-t="h1">Just speak.<br>FIL<span>RUP</span> tracks it.</h1>
     <p class="lead" data-t="lead">Log every fill-up, mile and expense by voice in seconds. Automatic trip tracking is coming. Never miss a registration or insurance renewal again.</p>
+    <a class="soonpill" href="#auto" data-t="heroPill">COMING SOON · Automatic trips</a>
     <div class="cta">
       <a class="btn btn-dark" href="https://apps.apple.com/us/app/filrup/id6773988525" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.2 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5.9-1.4 1.3-2.7 1.4-2.8-.1 0-2.9-1.1-2.9-4.1zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.4z"/></svg>App Store</a>
       <a class="btn btn-line" href="https://play.google.com/store/apps/details?id=com.azizah52.FILRUP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M3 2.5v19l10.5-9.5L3 2.5zm12 7.7L5.8 3.7l11.4 6.6-2.2 2.1v-2.2zm0 3.6v-2.2l2.2 2.1-11.4 6.6L15 13.8zm3.9-3.4l-2.6-1.5-2.6 2.4 2.6 2.4 2.6-1.5c.8-.5.8-1.3 0-1.8z"/></svg>Google Play</a>
@@ -152,7 +180,7 @@ a{color:inherit}
     <!-- Pricing: ONE string (data-t="pricing", T.en / T.es + the two static defaults). -->
     <p class="free" data-t="pricing">$1.99/mo · Family plan $3.99/mo, up to 6 drivers</p>
   </div>
-  <div class="phone"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name">Home</span></div><img class="shot" data-shot="home" src="assets/site/home-en.jpg" width="720" height="1564" alt="FILRUP home screen with Tap to speak and Needs attention" style="display:none"></div>
+  <div class="phone"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name">Home</span></div><div class="shotwrap"><img class="shot" data-shot="home" src="assets/site/home-en.jpg" width="720" height="1564" alt="FILRUP home screen with Tap to speak and Needs attention" style="display:none"><span class="hintlive" id="hintLive" aria-live="off" hidden></span></div></div>
 </div></section>
 
 <section class="pillars"><div class="wrap">
@@ -179,14 +207,22 @@ a{color:inherit}
     <div class="phone"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name">Miles</span></div><img class="shot" data-shot="miles" src="assets/site/miles-en.jpg" width="720" height="1564" alt="Miles screen with estimated deduction and trip list" style="display:none"></div>
   </div>
 
-  <div class="pillar" id="auto">
-    <div class="text"><div class="eyebrow"><span data-t="aEye">Automatic trips</span><span class="soon" data-t="aSoon">Coming soon</span></div><h3 data-t="aH3">Your drives, logged for you.</h3>
-      <p data-t="aP">Soon FILRUP will notice when you drive, record the trip start to finish, and ask you for a job when you park. Every trip on a map, within a mile of your odometer. Walking and parking-lot moves are flagged, not counted. You confirm every trip — nothing counts until you do.</p>
-      <div class="chips"><span class="chip" data-t="aC1">Auto-tracking</span><span class="chip" data-t="aC2">Trip maps</span><span class="chip" data-t="aC3">One-tap classify</span><span class="chip" data-t="aC4">14-day free trial</span></div>
-      <p class="already" data-t="aAlready">Already have FILRUP? Auto-tracking arrives as an update — nothing to do.</p></div>
-    <div class="mapcard"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name" data-t="aPh">Trip map</span></div><img class="shot" data-shot="gps-map" src="assets/site/gps-map-en.jpg" width="900" height="795" alt="A trip on the map: 7.7 mi, 24 min, worth $5.83 at 76¢ a mile, start 6:34 AM, end 6:58 AM" style="display:none"></div>
-  </div>
+</div></section>
 
+<section class="gps" id="auto"><div class="wrap">
+  <div class="text"><div class="eyebrow"><span data-t="aEye">Automatic trips</span><span class="soon" data-t="aSoon">Coming soon</span></div><h3 data-t="aH3">Your drives, logged for you.</h3>
+    <p data-t="aP">Soon FILRUP will notice when you drive, record the trip start to finish, and ask you for a job when you park. Every trip on a map, within a mile of your odometer. Walking and parking-lot moves are flagged, not counted. You confirm every trip — nothing counts until you do.</p>
+    <div class="chips"><span class="chip" data-t="aC1">Auto-tracking</span><span class="chip" data-t="aC2">Trip maps</span><span class="chip" data-t="aC3">One-tap classify</span><span class="chip" data-t="aC4">14-day free trial</span></div>
+    <p class="already" data-t="aAlready">Already have FILRUP? Auto-tracking arrives as an update — nothing to do.</p></div>
+  <div class="mapcard"><div class="ph"><span class="ph-mark">FIL<b>RUP</b></span><span class="ph-name" data-t="aPh">Trip map</span></div><img class="shot" data-shot="gps-map" src="assets/site/gps-map-en.jpg" width="900" height="795" alt="A trip on the map: 7.7 mi, 24 min, worth $5.83 at 76¢ a mile, start 6:34 AM, end 6:58 AM" style="display:none"></div>
+  <div class="stats">
+    <div class="stat"><b data-t="st1b">0 missed trips</b><span data-t="st1s">Every drive, start to finish.</span></div>
+    <div class="stat"><b data-t="st2b">Within 1 mi</b><span data-t="st2s">of your odometer.</span></div>
+    <div class="stat"><b data-t="st3b">You confirm</b><span data-t="st3s">every trip — nothing counts until you do.</span></div>
+  </div>
+</div></section>
+
+<section class="pillars"><div class="wrap">
   <div class="pillar" id="expenses">
     <div class="text"><div class="eyebrow" data-t="eEye">Expenses</div><h3 data-t="eH3">Track business expenses by job.</h3>
       <p data-t="eP">Scan the receipt, pick the job, done. Real estate, rideshare, delivery, nursing, security and more, or name your own. Everything files under the right work for tax time. Import from a spreadsheet — bring your existing expenses, miles and fuel in from a CSV.</p>
@@ -256,7 +292,7 @@ a{color:inherit}
 <script>
 const T={
   en:{
-    navRenewals:"Renewals",navFuel:"Fuel",navMiles:"Miles",navExpenses:"Expenses",navTaxes:"Tax packet",navHow:"How it works",navGet:"Get the app",
+    navRenewals:"Renewals",navFuel:"Fuel",navMiles:"Miles",navAuto:"Auto-tracking",navExpenses:"Expenses",navTaxes:"Tax packet",navHow:"How it works",navGet:"Get the app",
     eyebrowTop:"Renewals · Fuel · Miles · Expenses · Tax packet",
     h1:"Just speak.<br>FIL<span>RUP</span> tracks it.",
     lead:"Log every fill-up, mile and expense by voice in seconds. Automatic trip tracking is coming. Never miss a registration or insurance renewal again.",
@@ -265,6 +301,9 @@ const T={
     rEye:"Renewals",rH3:"Never miss a renewal again.",rP:"Insurance, registration and emissions. FILRUP reminds you 30, 7 and 1 day before, and the day of, and keeps the documents one tap away behind Face ID.",rC1:"30 · 7 · 1 day before",rC2:"Day-of reminder",rC3:"Document vault",rC4:"Face ID",
     fEye:"Fuel",fH3:"See exactly what you spend on fuel.",fP:"Say it or type it. FILRUP logs the station, gallons, price and receipt, then shows your monthly total, average price per gallon and cost per mile.",fC1:"Voice entry",fC2:"Receipt scan",fC3:"Cost per mile",
     mEye:"Miles",mH3:"Track every business mile.",mP:"Log a trip or your whole day, tag it to the job, and watch your IRS deduction estimate build. Business and personal stay separate.",mC1:"Log my day",mC2:"Log a trip",mC3:"Business vs personal",
+    anncText:"⚡ Automatic trip tracking is coming — every drive logged, mapped and ready for taxes. See how it works ↓",anncClose:"Dismiss",heroPill:"COMING SOON · Automatic trips",
+    st1b:"0 missed trips",st1s:"Every drive, start to finish.",st2b:"Within 1 mi",st2s:"of your odometer.",st3b:"You confirm",st3s:"every trip — nothing counts until you do.",
+    hints:["I spent $45.10 on regular fuel","$12 car wash, personal","12 miles to a showing, real estate"],hintTry:"Try:",
     aEye:"Automatic trips",aSoon:"Coming soon",aH3:"Your drives, logged for you.",aP:"Soon FILRUP will notice when you drive, record the trip start to finish, and ask you for a job when you park. Every trip on a map, within a mile of your odometer. Walking and parking-lot moves are flagged, not counted. You confirm every trip — nothing counts until you do.",aC1:"Auto-tracking",aC2:"Trip maps",aC3:"One-tap classify",aC4:"14-day free trial",aPh:"Trip map",
     aAlready:"Already have FILRUP? Auto-tracking arrives as an update — nothing to do.",
     eEye:"Expenses",eH3:"Track business expenses by job.",eP:"Scan the receipt, pick the job, done. Real estate, rideshare, delivery, nursing, security and more, or name your own. Everything files under the right work for tax time. Import from a spreadsheet — bring your existing expenses, miles and fuel in from a CSV.",eC1:"Receipt scanner",eC2:"Job catalog",eC3:"Custom jobs",eC4:"CSV import",
@@ -289,7 +328,7 @@ const T={
     footPrivacy:"Privacy Policy",footTerms:"Terms",footSupport:"Support"
   },
   es:{
-    navRenewals:"Renovaciones",navFuel:"Gasolina",navMiles:"Millas",navExpenses:"Gastos",navTaxes:"Paquete fiscal",navHow:"Cómo funciona",navGet:"Descargar la app",
+    navRenewals:"Renovaciones",navFuel:"Gasolina",navMiles:"Millas",navAuto:"Viajes automáticos",navExpenses:"Gastos",navTaxes:"Paquete fiscal",navHow:"Cómo funciona",navGet:"Descargar la app",
     eyebrowTop:"Renovaciones · Gasolina · Millas · Gastos · Paquete fiscal",
     h1:"Solo habla.<br>FIL<span>RUP</span> lo registra.",
     lead:"Registra cada carga, cada milla y cada gasto con tu voz en segundos. El registro automático de viajes llega pronto. Nunca olvides una renovación de registro o seguro.",
@@ -298,6 +337,9 @@ const T={
     rEye:"Renovaciones",rH3:"Nunca olvides una renovación.",rP:"Seguro, registro y emisiones. FILRUP te avisa 30, 7 y 1 día antes, y el mismo día, y guarda tus documentos a un toque, protegidos con Face ID.",rC1:"30 · 7 · 1 día antes",rC2:"Aviso el mismo día",rC3:"Bóveda de documentos",rC4:"Face ID",
     fEye:"Gasolina",fH3:"Mira exactamente cuánto gastas en gasolina.",fP:"Dilo o escríbelo. FILRUP registra la estación, los galones, el precio y el recibo, y te muestra el total mensual, el precio promedio por galón y el costo por milla.",fC1:"Entrada por voz",fC2:"Escaneo de recibos",fC3:"Costo por milla",
     mEye:"Millas",mH3:"Registra cada milla de trabajo.",mP:"Registra un viaje o todo tu día, asígnalo a un trabajo y mira crecer tu estimado de deducción del IRS. Lo de trabajo y lo personal siempre separados.",mC1:"Registrar mi día",mC2:"Registrar un viaje",mC3:"Trabajo vs personal",
+    anncText:"⚡ El registro automático de viajes llega pronto — cada viaje registrado, en el mapa y listo para tus impuestos. Mira cómo funciona ↓",anncClose:"Cerrar",heroPill:"MUY PRONTO · Viajes automáticos",
+    st1b:"0 viajes perdidos",st1s:"Cada viaje, de principio a fin.",st2b:"A menos de 1 mi",st2s:"de tu odómetro.",st3b:"Tú confirmas",st3s:"cada viaje — nada cuenta hasta que lo hagas.",
+    hints:["Gasté 45 dólares en gasolina regular","12 dólares de lavado, personal","12 millas a una cita, bienes raíces"],hintTry:"Prueba:",
     aEye:"Viajes automáticos",aSoon:"Muy pronto",aH3:"Tus viajes, registrados por ti.",aP:"Pronto FILRUP notará cuando manejas, registrará el viaje de principio a fin y te pedirá el trabajo cuando te estaciones. Cada viaje en un mapa, a menos de una milla de tu odómetro. Caminar y moverte en el estacionamiento se marca, no se cuenta. Tú confirmas cada viaje: nada cuenta hasta que lo hagas.",aC1:"Seguimiento automático",aC2:"Mapas de viajes",aC3:"Clasifica con un toque",aC4:"14 días gratis",aPh:"Mapa del viaje",
     aAlready:"¿Ya tienes FILRUP? El seguimiento automático llegará como actualización.",
     eEye:"Gastos",eH3:"Registra gastos de trabajo por empleo.",eP:"Escanea el recibo, elige el trabajo, listo. Bienes raíces, viajes compartidos, entregas, enfermería, seguridad y más, o ponle tu propio nombre. Todo queda archivado bajo el trabajo correcto para tus impuestos. Importa desde una hoja de cálculo: trae tus gastos, millas y gasolina desde un archivo CSV.",eC1:"Escáner de recibos",eC2:"Catálogo de trabajos",eC3:"Trabajos personalizados",eC4:"Importar CSV",
@@ -326,6 +368,8 @@ function applyLang(l){
   if(!T[l]) l='en';
   document.documentElement.lang=l;
   document.querySelectorAll('[data-t]').forEach(function(el){var v=T[l][el.dataset.t]; if(v!==undefined) el.innerHTML=v;});
+  document.querySelectorAll('[data-al]').forEach(function(el){var v=T[l][el.dataset.al]; if(v!==undefined) el.setAttribute('aria-label',v);});
+  if(window.hintLang) window.hintLang(l);
   document.querySelectorAll('[data-ph]').forEach(function(el){var v=T[l][el.dataset.ph]; if(v!==undefined) el.setAttribute('placeholder',v);});
   document.querySelectorAll('[data-href-es]').forEach(function(el){if(!el.dataset.hrefEn) el.dataset.hrefEn=el.getAttribute('href'); el.setAttribute('href', l==='es' ? el.dataset.hrefEs : el.dataset.hrefEn);});
   document.querySelectorAll('img.shot').forEach(function(img){showShot(img,l);});
@@ -340,7 +384,7 @@ function applyLang(l){
 function showShot(img,l){
   var name=img.dataset.shot; if(!name) return;
   var src=img.dataset.one ? 'assets/site/'+name+'.'+img.dataset.one : 'assets/site/'+name+'-'+l+'.jpg';
-  var ph=img.parentNode.querySelector('.ph');
+  var frame=img.closest('.phone, .mapcard')||img.parentNode, ph=frame.querySelector('.ph');
   var probe=new Image();
   probe.onload=function(){ if(probe.naturalWidth>0){ img.src=src; img.style.display='block'; if(ph) ph.style.display='none'; } };
   probe.src=src;
@@ -351,6 +395,31 @@ function showShot(img,l){
   var tog=document.getElementById('langToggle');
   if(tog) tog.addEventListener('click',function(){applyLang(document.documentElement.lang==='es'?'en':'es');});
   applyLang(saved);
+})();
+// Announcement bar: dismiss once, remembered.
+(function(){
+  var bar=document.getElementById('annc'), x=document.getElementById('anncX'); if(!bar) return;
+  try{ if(localStorage.getItem('filrup_annc_gps')==='1'){ bar.hidden=true; } }catch(e){}
+  x.addEventListener('click',function(){ bar.hidden=true; try{localStorage.setItem('filrup_annc_gps','1');}catch(e){} });
+})();
+// Hero hint: live text over the screenshot's blank "Try: …" line, fading through
+// three examples every 3 s (the app's italic hint style). Reduced motion → the
+// first example only. Sized in container units so it tracks the phone width.
+(function(){
+  var el=document.getElementById('hintLive'); if(!el) return;
+  var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i=0, timer=null, lang='en';
+  var line=function(){ var t=T[lang]; return t.hintTry+' "'+t.hints[i]+'"'; };
+  window.hintLang=function(l){ lang=T[l]?l:'en'; i=0; el.textContent=line(); };
+  window.hintLang(document.documentElement.lang||'en');
+  var img=el.parentNode.querySelector('img');
+  var show=function(){ if(img.style.display==='block') el.hidden=false; };
+  if(img.complete) show(); img.addEventListener('load',show); new MutationObserver(show).observe(img,{attributes:true,attributeFilter:['style']});
+  if(reduce) return;
+  timer=setInterval(function(){
+    el.classList.add('out');
+    setTimeout(function(){ i=(i+1)%T[lang].hints.length; el.textContent=line(); el.classList.remove('out'); },450);
+  },3000);
 })();
 </script>
 </body>
