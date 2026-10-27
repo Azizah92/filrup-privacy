@@ -1,13 +1,18 @@
-# Homepage screenshots (drop-in)
+# Site screenshots
 
-index.html references these 6 files. Capture on iPhone 15 Pro, light mode,
-status bar 9:41 / full battery, with the demo dataset, export/scale to
-720px-wide JPEG, and drop them here (exact filenames):
+index.html and support(-es).html pick the image for the page language:
+`<name>-en.jpg` / `<name>-es.jpg` (720 px wide JPEG, from the app repo's
+docs/store-screenshots/1.5.25-preview/<name>-<lang>-light.png):
 
-- home.jpg      Home: "Sophia" 2013 Lexus LS 460 · 51,977 mi, Tap to speak,
-                "Insurance, emissions and registration are up to date."
-- vehicles.jpg  Vehicles: same car, insurance/emissions/registration OK w/ days-until, 3 service entries
-- fuel.jpg      Fuel, All 2026: $2,316.40 · 41 logs · $4.79 avg · 24.8¢/mi; Sep $612.88 · 9 fill-ups; QuikTrip/Fry's entries
-- miles.jpg     Miles, All 2026: $6,384.00 · 8,400 business · 512 personal · 76¢; job "DoorDash"; Sep 1,212.3 mi · $921.35
-- jobs.jpg      Select your job sheet: Real estate, Security, Amazon Flex, DoorDash (checked), Photographer, + Add a job
-- export.jpg    Tax Export: Everything selected; Miles 8,400·139, Fuel 41·$2,316.40, Expenses 6·$412.50, Service 6·$4,015.00, PDF selected
+- home      Home (Tap to speak, Needs attention)
+- vehicles  Vehicles & documents (renewals)
+- fuel      Fuel (All 2026)
+- miles     Miles (All 2026)
+- expenses  Expenses (All 2026)
+- packet    Tax packet
+
+One image for both languages:
+
+- gps-map.png  Trip detail map for "Automatic trips · Coming soon" (from the app
+               repo's docs/site/gps-map.png). Until it's here, the section shows
+               the "Trip map" placeholder.
