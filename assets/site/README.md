@@ -13,6 +13,6 @@ docs/store-screenshots/1.5.25-preview/<name>-<lang>-light.png):
 
 One image for both languages:
 
-- gps-map.png  Trip detail map for "Automatic trips · Coming soon" (from the app
-               repo's docs/site/gps-map.png). Until it's here, the section shows
-               the "Trip map" placeholder.
+- gps-map.jpg  Trip map card for "Automatic trips · Coming soon" (from the app
+               repo's docs/site/gps-map.png, 900 px wide), shown in a map-card
+               frame (not a phone frame — it is a cropped map, not a full screen).
